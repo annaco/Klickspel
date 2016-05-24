@@ -39,13 +39,13 @@ module.exports = function(grunt) {
 		},
 
 		/* JSCS */
-		/*jscs: {
+		jscs: {
 			src: 'src/js/*.js',
 			options: {
 				// man kan välja andra standard inställningar (setup)
 				'preset': 'google'
 			}
-		},*/
+		},
 
 		/* UGLIFY */
 		uglify: {
