@@ -11,7 +11,10 @@ function startGame() {
 }
 
 function init(){
-	$('.apple, .orange').draggable({ revert: 'invalid'});
+	$('.apple, .orange').draggable({ 
+		revert: 'invalid',
+		cursor: 'pointer',
+	});
 }
 function dragAndDrop() {
 	$('.kastrull').droppable({
@@ -26,3 +29,10 @@ function dragAndDrop() {
 		}
 	});
 }
+
+
+//TESTING
+
+
+
+
