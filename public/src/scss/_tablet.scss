@@ -21,6 +21,15 @@
     left: 230px;
     z-index: 1;
 }
+#arrowDown {
+	content: url(../img/arrowDown.svg);
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	top: 310px;
+    left: 390px;
+    z-index: 1;
+}
 .kastrull {
 	content: url(../img/kastrull.png);
 	height: 80px;

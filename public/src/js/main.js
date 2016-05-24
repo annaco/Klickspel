@@ -8,6 +8,7 @@ function startGame() {
 	$(".instruction").addClass("close");
 	init();
 	dragAndDrop();
+	arrowDown();
 }
 
 function init(){
@@ -30,9 +31,21 @@ function dragAndDrop() {
 	});
 }
 
+// Pilen pekar ner i kastrullen 3 ggr
+function arrowDown() {
+	for (i = 0; i < 3; i++) {
+		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);
+    }
+}
 
-//TESTING
 
 
+ 
+          
+
+
+         
+           
 
 
