@@ -39,13 +39,13 @@ module.exports = function(grunt) {
 		},
 
 		/* JSCS */
-		jscs: {
+		/*jscs: {
 			src: 'src/js/*.js',
 			options: {
 				// man kan välja andra standard inställningar (setup)
 				'preset': 'google'
 			}
-		},
+		},*/
 
 		/* UGLIFY */
 		uglify: {
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
 			js: {
 				files: ['src/js/*.js'],
 				// kör först jscs, sen concat och sen uglify; i exakt den här ordningen man har skrivit moduler
-				tasks: ['jscs', 'concat', 'uglify'] // man kan kommentera bort ([/*'jscs']*/) om man inte vill att det kör varje gång man spara sin js-filen
+				tasks: [/*'jscs',*/ 'concat', 'uglify'] // man kan kommentera bort ([/*'jscs']*/) om man inte vill att det kör varje gång man spara sin js-filen
 			},
 			options: {
 				nospawn: true
