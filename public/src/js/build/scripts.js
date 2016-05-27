@@ -2,13 +2,14 @@ var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems
 var recipe;
 var currentRecipe = 0;
 var totalRecipe = 0;
+var id = "";
 $(document).ready(function() {
 	// Connects with JSON - ingredients list
 	$.getJSON("../recipes.json", function(data) {
 		recipe = data.recipe;
 		totalRecipe = recipe.length;
+		getIngredients();
 	});
-
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	$("#start").on('click', startGame);
 });
@@ -27,23 +28,30 @@ function startGame() {
 	timer = setInterval(countTime, 1000);
 
 	// functions
-	makeDraggable();
-	dragAndDrop();
 	arrowDown();
-	getIngredients();
+	getList();
 }
-function getIngredients() {
+function getList() {
 	// Displays the ingredients list
 	var ingredients = "";
 	var recipeTitle = recipe[0].rubrik;
-	var id = "";
-	for (var i=1; i<totalRecipe;i++) {
+	
+	for (var i=1; i < totalRecipe; i++) {
 		ingredients += "<li class='pannkakor' id='"+recipe[i].id+"'>";
 		ingredients += "<img src='"+recipe[i].img+"'>";
 		ingredients += "</li>";
 	}
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
+}
+function getIngredients() {
+	var items = "";
+	for (var i=1; i < totalRecipe; i++) {
+		items += "<img src='"+recipe[i].img+"' class='draggableItem ok "+recipe[i].ingr+"' id='"+recipe[i].id+"'>";
+	}
+	$('#items').html(items);
+	makeDraggable();
+	dragAndDrop();
 }
 function countTime() {
 	currentTime++; 
@@ -77,13 +85,16 @@ function dragAndDrop() {
 		drop:function(event, ui){
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
-
-			if((recipe[1].id == userAnswer) || (recipe[2].id == userAnswer)){
-				$(userAnswerID).addClass("done");
-
-				//console.log(userAnswerID);
-				//console.log("rätt");
+			for (var i=1; i < totalRecipe; i++) {
+				if((recipe[i].id == userAnswer)){
+					$(userAnswerID).addClass("done");
+					ui.draggable.hide();
+					//console.log(userAnswerID);
+					//console.log("rätt");
+				}
 			}
+
+			
 			if ($('.done').length == 2) {
 				$('.grattis').show();
 				setTimeout(endGame);
