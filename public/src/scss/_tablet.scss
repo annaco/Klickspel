@@ -2,61 +2,127 @@
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
 	background-size: 1024px;
-	width: 1024px;
+	width: 1000px;
 	height: 700px;
 	position: relative;
 	margin: 0px auto;
 	border: 20px solid white;
 }
-.apple {
-	content: url(../img/Apple.png);
+.ball {
+	content: url(../img/ball.png);
 	width: 50px;
 	position: absolute;
-	top: 450px;
-    left: 500px;
+	top: 65px;
+    left: 270px;
     z-index: 1;
 }
-.orange {
-	content: url(../img/orange.png);
-	width: 50px;
+.banana {
+	content: url(../img/banana.png);
+	width: 75px;
 	position: absolute;
-	top: 450px;
-    left: 230px;
+	top: 465px;
+    left: 280px;
     z-index: 1;
 }
-.chocolate {
-	content: url(../img/chocolate.png);
-	width: 50px;
+.cactus {
+	content: url(../img/cactus.png);
+	width: 60px;
 	position: absolute;
-	top: 460px;
-    right: 150px;
+	top: 260px;
+    left: 870px;
     z-index: 1;
 }
-.pear {
-	content: url(../img/pear.png);
-	width: 50px;
+.candy {
+	content: url(../img/candy.png);
+	width: 70px;
 	position: absolute;
-	top: 450px;
-    left: 550px;
+	top: 300px;
+    left: 190px;
     z-index: 1;
 }
-#arrowDown {
-	content: url(../img/arrowDown.png);
-	width: 50px;
-	height: 100px;
+.carrot {
+	content: url(../img/carrot.png);
+	width: 110px;
 	position: absolute;
-	top: 310px;
-    left: 390px;
+	top: 475px;
+    left: 170px;
     z-index: 1;
 }
 
-/*.kastrull {
-	content: url(../img/kastrull.png);
-	height: 80px;
+.duck {
+	content: url(../img/duck.png);
+	width: 60px;
 	position: absolute;
-	top: 420px;
-    left: 340px;
-}*/
+	top: 390px;
+    left: 280px;
+    z-index: 1;
+}
+.egg {
+	content: url(../img/egg.png);
+	width: 85px;
+	position: absolute;
+	top: 375px;
+    left: 170px;
+    z-index: 1;
+}
+.flour {
+	content: url(../img/flour.png);
+	width: 70px;
+	position: absolute;
+	top: 137px;
+    left: 270px;
+    z-index: 1;
+}
+.juice {
+	content: url(../img/juice.png);
+	width: 38px;
+	position: absolute;
+	top: 255px;
+    left: 935px;
+    z-index: 1;
+}
+.milk {
+	content: url(../img/milk.png);
+	width: 50px;
+	position: absolute;
+	top: 382px;
+    left: 890px;
+    z-index: 1;
+}
+.pepper {
+	content: url(../img/pepper.png);
+	width: 32px;
+	position: absolute;
+	top: 170px;
+    left: 500px;
+    z-index: 1;
+}
+.salt {
+	content: url(../img/salt.png);
+	width: 32px;
+	position: absolute;
+	top: 170px;
+    left: 450px;
+    z-index: 1;
+}
+
+#arrowDown {
+	content: url(../img/arrowDown.png);
+	width: 70px;
+	position: absolute;
+	top: 360px;
+    left: 420px;
+    z-index: 1;
+}
+
+.kastrull {
+	height: 140px;
+    width: 150px;
+    position: absolute;
+    top: 500px;
+    left: 380px;
+    border: solid red 2px;
+}
 
 .grattis {
 	content: url(../img/grattis.gif);
@@ -65,7 +131,7 @@
 .instruction {
 	width: 100%;
 	height: 100%;
-	background-color: transparentize(#fff, 0.25);
+	//background-color: transparentize(#fff, 0.25);
 	position: absolute;
 	z-index: 2;
 
@@ -91,7 +157,7 @@
 	cursor: grab;
 }
 .done {
-	color: red;
+	opacity: 0.3;
 }
 #stop {
 	display: none;
@@ -99,4 +165,10 @@
 #recipe {
 	color: blue;
 	font-size: 2em;
+}
+li {
+	list-style: none;
+	img {
+		width: 80px;
+	}
 }

@@ -5,13 +5,13 @@
 		},
 		{
 			"id": 1,
-			"ingr": "Apple",
-			"img": "../img/Apple.png"
+			"ingr": "apple",
+			"img": "img/Apple.png"
 		},
 		{
 			"id": 2,
-			"ingr": "Chocolate",
-			"img": "../img/chocolate.png"
+			"ingr": "chocolate",
+			"img": "img/chocolate.png"
 		}
 	]
 }
