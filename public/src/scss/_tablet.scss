@@ -21,6 +21,22 @@
     left: 230px;
     z-index: 1;
 }
+.chocolate {
+	content: url(../img/chocolate.png);
+	width: 50px;
+	position: absolute;
+	top: 460px;
+    right: 150px;
+    z-index: 1;
+}
+.pear {
+	content: url(../img/pear.png);
+	width: 50px;
+	position: absolute;
+	top: 450px;
+    left: 550px;
+    z-index: 1;
+}
 #arrowDown {
 	content: url(../img/arrowDown.svg);
 	width: 50px;
@@ -66,12 +82,12 @@
 		transform: translate(-50%, -50%);
 	}
 }
-.close {
-	display: none;
-}
 .draggableItem {
 	cursor: grab;
 }
 .done {
 	color: red;
+}
+#stop {
+	display: none;
 }
