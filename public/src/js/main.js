@@ -34,7 +34,7 @@ function startGame() {
 function getList() {
 	// Displays the ingredients list
 	var ingredients = "";
-	var recipeImg ="<img src='"+recipe[0].img+"'>";
+	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	
 	for (var i=1; i < totalRecipe; i++) {
 		ingredients += "<li class='pannkakor' id='"+recipe[i].id+"'>";
@@ -42,7 +42,7 @@ function getList() {
 		ingredients += "</li>";
 	}
 	$('#ingredients').html(ingredients);
-	$('#recipe').html(recipeImg);
+	$('#recipe').html(recipeTitle);
 }
 function getIngredients() {
 	var items = "";
@@ -93,23 +93,10 @@ function dragAndDrop() {
 					//console.log("rätt");
 				}
 			}
-
-			
-			if ($('.done').length == 2) {
+			if ($('.done').length == 4) {
 				$('.grattis').show();
 				setTimeout(endGame);
 			}
-
-
-			/*if (ui.draggable.is('.apple')) {
-				$('.apple').hide().addClass('pannkakor');
-			} else if (ui.draggable.is('.chocolate')) {
-				$('.chocolate').hide().addClass('pannkakor');
-			}
-			if ($('.pannkakor').length == 2) {
-				$('.grattis').show();
-				setTimeout(endGame);
-			}*/
 		}
 	});
 }
@@ -123,24 +110,4 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);
     }
 }
-
-
-/*var theContent = "";
-var theTimes = "";
-for (var i=0; i<totalRecipe;i++) {
-	theContent += recipe[i].name + '<br>';
-	theTimes += recipe[i].time + '<br>';
-}
-$('#nameText').html(theContent);
-$('#timeText').html(theTimes);
-*/
-
-
- 
-          
-
-
-         
-           
-
 
