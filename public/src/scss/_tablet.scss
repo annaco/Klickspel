@@ -1,6 +1,7 @@
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
+	    background-size: contain;
 	width: 1024px;
 	height: 766px;
 	position: relative;
@@ -47,11 +48,12 @@
     z-index: 1;
 }
 .kastrull {
-	content: url(../img/kastrull.png);
-	height: 80px;
-	position: absolute;
-	top: 420px;
-    left: 340px;
+	//content: url(../img/kastrull.png);
+	height: 100px;
+    width: 150px;
+    position: absolute;
+    top: 500px;
+    left: 380px;
 }
 .grattis {
 	content: url(../img/grattis.gif);
@@ -86,7 +88,7 @@
 	cursor: grab;
 }
 .done {
-	color: red;
+	opacity: 0.3;
 }
 #stop {
 	display: none;
@@ -94,4 +96,10 @@
 #recipe {
 	color: blue;
 	font-size: 2em;
+}
+li {
+	list-style: none;
+	img {
+		width: 80px;
+	}
 }

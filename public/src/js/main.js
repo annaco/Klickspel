@@ -44,7 +44,9 @@ function getIngredients() {
 	var recipeTitle = recipe[0].rubrik;
 	var id = "";
 	for (var i=1; i<totalRecipe;i++) {
-		ingredients += "<li class='pannkakor' id='"+recipe[i].id+"'>" + recipe[i].ingr + '</li>';
+		ingredients += "<li class='pannkakor' id='"+recipe[i].id+"'>";
+		ingredients += "<img src='"+recipe[i].img+"'>";
+		ingredients += "</li>";
 	}
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
@@ -76,7 +78,6 @@ function makeDraggable(){
 };
 
 function dragAndDrop() {
-
 	$('.kastrull').droppable({
 		accept: '.apple, .chocolate',
 		drop:function(event, ui){
