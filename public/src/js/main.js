@@ -1,17 +1,16 @@
 var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems = 0;
 $(document).ready(function() {
+	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	$("#start").on('click', startGame);
 	$('#stop').on('click', endGame);
 });
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
-	$(".instruction").addClass("close");
+	$(".instruction").hide();
 	//Removes the event listener from the start button
 	$('#start').off('click', startGame); 
-
 	//Removes the start button when the game is started
-	$('#start').css({'display':'none'});
-
+	$('#start').hide();
 	//Starts the timer function
 	timer = setInterval(countTime, 1000);
 	$('#stop').show();
@@ -42,9 +41,6 @@ function countTime() {
 }
 function makeDraggable(){
 	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});
-
-	// När man klickar på "börja laga" i instruktionsrutan startar spelet
-	$("#start").on('click', startGame);
 };
 function dragAndDrop() {
 	$('.kastrull').droppable({
