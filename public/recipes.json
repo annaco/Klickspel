@@ -1,17 +1,27 @@
 {
 	"recipe": [
 		{
-			"rubrik": "Recept för pannkakor:"
+			"img": "img/pancakes.png"
 		},
 		{
 			"id": 1,
-			"ingr": "apple",
-			"img": "img/Apple.png"
+			"ingr": "egg",
+			"img": "img/egg.png"
 		},
 		{
 			"id": 2,
-			"ingr": "chocolate",
-			"img": "img/chocolate.png"
+			"ingr": "milk",
+			"img": "img/milk.png"
+		},
+		{
+			"id": 3,
+			"ingr": "salt",
+			"img": "img/salt.png"
+		},
+		{
+			"id": 4,
+			"ingr": "flour",
+			"img": "img/flour.png"
 		}
 	]
 }
