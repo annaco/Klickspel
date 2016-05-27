@@ -11,9 +11,6 @@ $(document).ready(function() {
 
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	$("#start").on('click', startGame);
-
-	// The timer stops when the stop button is clicked
-	$('#stop').on('click', endGame);
 });
 
 function startGame() {
@@ -28,9 +25,6 @@ function startGame() {
 
 	// Starts the timer function
 	timer = setInterval(countTime, 1000);
-
-	// The stop button appears
-	$('#stop').show();
 
 	// functions
 	makeDraggable();
@@ -79,7 +73,7 @@ function makeDraggable(){
 
 function dragAndDrop() {
 	$('.kastrull').droppable({
-		accept: '.apple, .chocolate',
+		accept: '.ok',
 		drop:function(event, ui){
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
