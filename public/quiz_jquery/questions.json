@@ -1,0 +1,28 @@
+{
+	"recipe": [
+		{
+			"id": "rubrik",
+			"rubrik": "Recept för pannkakor:"
+		},
+		{
+			"id": 1,
+			"ingr1": "Ägg"
+		},
+		{
+			"id": 2,
+			"ingr2": "Mjöl"
+		},
+		{
+			"id": 3,
+			"ingr3": "Salt"
+		},
+		{
+			"id": 4,
+			"ingr4": "Mjölk"
+		},
+		{
+			"id": 5,
+			"ingr5": "Smör"
+		}
+	]
+}
