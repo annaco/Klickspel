@@ -1,0 +1,17 @@
+{
+	"recipe": [
+		{
+			"rubrik": "Recept för pannkakor:"
+		},
+		{
+			"id": 1,
+			"ingr": "Apple",
+			"img": "../img/Apple.png"
+		},
+		{
+			"id": 2,
+			"ingr": "Chocolate",
+			"img": "../img/chocolate.png"
+		}
+	]
+}
