@@ -1,0 +1,93 @@
+#wrapper {
+	background-image: url(../img/bg.png);
+	background-repeat: no-repeat;
+	width: 1024px;
+	height: 766px;
+	position: relative;
+}
+.apple {
+	content: url(../img/Apple.png);
+	width: 50px;
+	position: absolute;
+	top: 450px;
+    left: 500px;
+    z-index: 1;
+}
+.orange {
+	content: url(../img/orange.png);
+	width: 50px;
+	position: absolute;
+	top: 450px;
+    left: 230px;
+    z-index: 1;
+}
+.chocolate {
+	content: url(../img/chocolate.png);
+	width: 50px;
+	position: absolute;
+	top: 460px;
+    right: 150px;
+    z-index: 1;
+}
+.pear {
+	content: url(../img/pear.png);
+	width: 50px;
+	position: absolute;
+	top: 450px;
+    left: 550px;
+    z-index: 1;
+}
+#arrowDown {
+	content: url(../img/arrowDown.png);
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	top: 310px;
+    left: 390px;
+    z-index: 1;
+}
+.kastrull {
+	content: url(../img/kastrull.png);
+	height: 80px;
+	position: absolute;
+	top: 420px;
+    left: 340px;
+}
+.grattis {
+	content: url(../img/grattis.gif);
+	display: none;
+}
+.instruction {
+	width: 100%;
+	height: 100%;
+	background-color: transparentize(#fff, 0.25);
+	position: absolute;
+	z-index: 2;
+
+	.intro_text {
+		box-sizing: border-box;
+		padding: 3%;
+		font-family: 'Arial';
+		font-size: 2em;
+		margin: 0 auto;
+		text-align: center;
+	}
+	button {
+		padding: 1%;
+		font-size: 1em;
+		cursor: pointer;
+		position: relative;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, -50%);
+	}
+}
+.draggableItem {
+	cursor: grab;
+}
+.done {
+	color: red;
+}
+#stop {
+	display: none;
+}
