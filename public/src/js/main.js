@@ -68,7 +68,7 @@ function countTime() {
 		minutes = Math.floor(currentTime/60);	
 		var seconds = Number(currentTime-60);
 		if(seconds < 10){
-		time = "0" + minutes + ":0" + seconds;
+			time = "0" + minutes + ":0" + seconds;
 		}else{
 			time = "0" + minutes + ":" + seconds;
 		}
@@ -85,12 +85,22 @@ function dragAndDrop() {
 		drop:function(event, ui){
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
+			// Loops the recipe
 			for (var i=1; i < totalRecipe; i++) {
 				if((recipe[i].id == userAnswer)){
+
+					// Adds a class when the right ingredient is dropped
 					$(userAnswerID).addClass("done");
+
+					// The ingredient disappears
 					ui.draggable.hide();
-					//console.log(userAnswerID);
-					//console.log("rätt");
+
+					// The stars appear everytime a right ingredient is dropped
+					$('.star').show().animate({
+					    bottom: 250
+					}, 'slow', function() { 
+						$(this).removeAttr('style'); 
+					});
 				}
 			}
 			if ($('.done').length == 4) {

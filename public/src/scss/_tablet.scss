@@ -116,7 +116,6 @@
     left: 420px;
     z-index: 1;
 }
-
 .kastrull {
 	height: 140px;
     width: 150px;
@@ -125,7 +124,15 @@
     left: 380px;
     border: solid red 2px;
 }
-
+.star {
+	content: url(../img/stars2.png);
+	z-index: 1;
+	position: absolute;
+	bottom: 200px;
+    right: 400;
+    width: 100px;
+    display: none;
+}
 .grattis {
 	content: url(../img/grattis.gif);
 	display: none;
