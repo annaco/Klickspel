@@ -1,9 +1,12 @@
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
+	background-size: 1024px;
 	width: 1024px;
-	height: 766px;
+	height: 700px;
 	position: relative;
+	margin: 0px auto;
+	border: 20px solid white;
 }
 .apple {
 	content: url(../img/Apple.png);
@@ -46,13 +49,15 @@
     left: 390px;
     z-index: 1;
 }
-.kastrull {
+
+/*.kastrull {
 	content: url(../img/kastrull.png);
 	height: 80px;
 	position: absolute;
 	top: 420px;
     left: 340px;
-}
+}*/
+
 .grattis {
 	content: url(../img/grattis.gif);
 	display: none;
