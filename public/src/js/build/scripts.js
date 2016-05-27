@@ -1,11 +1,10 @@
 var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems = 0;
 $(document).ready(function() {
-	var formData = $("form.login").serialize();
-	console.log(formData);
 	$("#start").on('click', startGame);
 	$('#stop').on('click', endGame);
 });
 function startGame() {
+	// Instruktionsrutan försvinner och spelet startar
 	$(".instruction").addClass("close");
 	//Removes the event listener from the start button
 	$('#start').off('click', startGame); 
@@ -42,8 +41,11 @@ function countTime() {
 	$('#timer').html(time);
 }
 function makeDraggable(){
-	$('.draggableItem').draggable({revert: 'invalid'});
-}
+	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});
+
+	// När man klickar på "börja laga" i instruktionsrutan startar spelet
+	$("#start").on('click', startGame);
+};
 function dragAndDrop() {
 	$('.kastrull').droppable({
 		accept: '.apple, .chocolate',
@@ -63,4 +65,21 @@ function dragAndDrop() {
 function endGame(){
 	clearInterval(timer);
 }
+// Pilen pekar ner i kastrullen 3 ggr
+function arrowDown() {
+	for (i = 0; i < 3; i++) {
+		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);
+    }
+}
+
+
+
+ 
+          
+
+
+         
+           
+
 
