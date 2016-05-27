@@ -1,21 +1,28 @@
 var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems = 0;
 $(document).ready(function() {
+	$('#result').submit
+
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	$("#start").on('click', startGame);
+	// The timer stops when the stop button is clicked
 	$('#stop').on('click', endGame);
 });
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
 	$(".instruction").hide();
-	//Removes the event listener from the start button
+	// Removes the event listener from the start button
 	$('#start').off('click', startGame); 
-	//Removes the start button when the game is started
+	// Removes the start button when the game is started
 	$('#start').hide();
-	//Starts the timer function
+	// Starts the timer function
 	timer = setInterval(countTime, 1000);
+	// The stop button appears
 	$('#stop').show();
+
+	// functions
 	makeDraggable();
 	dragAndDrop();
+	arrowDown();
 }
 function countTime() {
 	currentTime++; 
