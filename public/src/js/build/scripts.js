@@ -4,6 +4,13 @@ var currentRecipe = 0;
 var totalRecipe = 0;
 var id = "";
 $(document).ready(function() {
+	
+	$('#send').click(function(event) {
+		event.preventDefault();
+		$('.reg').fadeOut();
+		
+	});
+
 	// Connects with JSON - ingredients list
 	$.getJSON("../recipes.json", function(data) {
 		recipe = data.recipe;

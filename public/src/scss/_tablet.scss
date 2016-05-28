@@ -1,3 +1,8 @@
+body {
+	background-color: rgba(0, 0, 0, 0.15);
+	position:relative;
+}
+
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
@@ -7,6 +12,24 @@
 	position: relative;
 	margin: 0px auto;
 	border: 20px solid white;
+}
+
+.reg {
+	width:400px;
+	height:150px;
+	z-index:10;
+	margin:50px;
+	padding:100px;
+	background-color: #f4f4cb;
+	border:2px solid black;
+	position:absolute;
+	top:25px;
+	left:25px;
+	border-radius: 25px; 
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-ms-border-radius: 25px;
+	border-radius: 25px; 
 }
 
 .ball {
