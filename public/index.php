@@ -24,6 +24,11 @@
 						<input id="send" type="submit" name="sent" value="skicka">
 					</form>
 					<!--button id="start" class="start">Börja laga</button-->
+					<?php 
+						if(isset($_POST['name'])){
+							$name = $_POST['name'];
+						}
+					?>
 				</div>
 			</div>
 		</div>
@@ -62,17 +67,26 @@
 
 	<div id="result">
 		<div class="recipeImg"></div>
-		<div class="nameAndTime"></div>
+		<div class="nameAndTime">
+			<div id="name"></div>
+			<div id="time"></div>
+		</div>
 		<p>Snabbaste spelarna</p>
-		<ul class="ranking">
-			
-		</ul>
+		<ul class="ranking"></ul>
 		<div class="playAgain">
-			<img src="img/button.png" allt="playagain">
+			<img src="img/button.png" alt="playagain">
 			<p>Spela igen</p>
 		</div>
 	</div>
-	
+	<?php
+		$playersList[] = $_POST['data'];
+
+		$inp = file_get_contents('players.json');
+		$tempArray = json_decode($inp);
+		array_push($tempArray, $data);
+		$jsonData = json_encode($tempArray);
+		file_put_contents('players.json', $jsonData);
+	?>
 
 
 	<script type="text/javascript" src="jquery.js"></script>
