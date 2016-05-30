@@ -120,7 +120,7 @@ function dragAndDrop() {
 			}
 			if ($('.done').length == 4) {
 				setTimeout(endTimer);
-				ranking();
+				result();
 			}
 		}
 	});
@@ -136,10 +136,18 @@ function arrowDown() {
     }
     $('#arrowDown').animate({"opacity": "0"}, 1000);
 }
-function ranking() {
+function result() {
 	$('#wrapper').hide();
-	$('#ranking').fadeIn('slow');
+	$('#result').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	$('.recipeImg').html(recipeTitle);
+
+	// If the player wants to play the game again, go back to the game
+	$('.playAgain').on('click', function() {
+		window.location = 'index.php?reload=true';
+	});
+	if(window.location.href.indexOf('reload=true') > -1) {
+	    $('.instruction').hide();
+	}
 }
 

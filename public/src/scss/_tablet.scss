@@ -219,7 +219,7 @@ li {
 		width: 80px;
 	}
 }
-#ranking {
+#result {
 	background-image: url(../img/ranking.png);
 	background-repeat: no-repeat;
 	width: 700px;
@@ -231,5 +231,25 @@ li {
 		margin: 0 auto;
 	    width: 202px;
 	    padding-top: 50px;
+	}
+	p {
+		text-align: center;
+		font-size: 1.56em;
+	}
+}
+.playAgain {
+	width: 173px;
+    margin: 0 auto;
+	img {
+		position: absolute;
+	}
+	p {
+		text-align: center;
+	    margin: 0;
+	    position: relative;
+	    padding-top: 10px;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
