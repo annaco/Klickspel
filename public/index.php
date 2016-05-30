@@ -3,15 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-	<title>Klickspel</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-=======
+<title>Klickspel</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
->>>>>>> 5d676de17e072570aa125b1f0606b9240255ef6e
 </head>
 <body>
 	<div id="wrapper">
@@ -72,12 +67,7 @@
 		<div class="kastrull"></div>
 		<img src="img/arrowDown.png" id="arrowDown">
 		
-<<<<<<< HEAD
-		<div class="star"></div>
-=======
 		<img src="img/stars2.png" class="star">
-		<img src="img/grattis.gif" class="grattis">
->>>>>>> 5d676de17e072570aa125b1f0606b9240255ef6e
 
 	</div>
 
