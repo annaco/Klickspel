@@ -131,7 +131,7 @@ function dragAndDrop() {
 
 					// The stars appear everytime a right ingredient is dropped
 					$('.star').show().animate({
-					    bottom: 250
+					    bottom: '+=150px'
 					}, 'slow', function() { 
 						$(this).removeAttr('style'); 
 					});
@@ -162,7 +162,8 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
-    $('#arrowDown').animate({"opacity": "0"}, 1000);
+    $('#arrowDown').fadeOut();
+
 }
 
 function result() {

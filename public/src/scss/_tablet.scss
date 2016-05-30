@@ -272,12 +272,13 @@ label{
     margin: 0 auto;
 	img {
 		position: absolute;
+		width: 25%;
 	}
 	p {
 		text-align: center;
 	    margin: 0;
 	    position: relative;
-	    padding-top: 10px;
+	    padding-top: 10%;
 	}
 	&:hover {
 		cursor: pointer;
