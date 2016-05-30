@@ -6,13 +6,10 @@
 <title>Klickspel</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="wrapper">
-
 
 		<div class="instruction">
 			<div class="monster"><img src="../img/monster.png"></div>
@@ -26,6 +23,11 @@
 						<input id="send" type="submit" name="sent" value="skicka">
 					</form>
 					<!--button id="start" class="start">Börja laga</button-->
+					<?php 
+						if(isset($_POST['name'])){
+							$name = $_POST['name'];
+						}
+					?>
 				</div>
 			</div>
 		</div>
@@ -37,9 +39,9 @@
 			<ul id="ingredients"></ul>
 		</div>
 
-		<img src="img/banana.png" id="8" class="draggableItem notOk banana">
+		<img src="img/banana.png" class="draggableItem banana">
 
-		<img src="img/cactus.png" id="9" class="draggableItem cactus">
+		<img src="img/cactus.png" class="draggableItem cactus">
 
 		<img src="img/candy.png" class="draggableItem candy">
 
@@ -53,8 +55,6 @@
 
 		<img src="img/pepper.png" class="draggableItem pepper">
 
-		<div id="face"><img src="../img/normal.png"></div>
-
 		<div id="items"></div>
 
 		<div class="kastrull"></div>
@@ -66,17 +66,26 @@
 
 	<div id="result">
 		<div class="recipeImg"></div>
-		<div class="nameAndTime"></div>
+		<div class="nameAndTime">
+			<div id="name"></div>
+			<div id="time"></div>
+		</div>
 		<p>Snabbaste spelarna</p>
-		<ul class="ranking">
-			
-		</ul>
+		<ul class="ranking"></ul>
 		<div class="playAgain">
-			<img src="img/button.png" allt="playagain">
+			<img src="img/button.png" alt="playagain">
 			<p>Spela igen</p>
 		</div>
 	</div>
-	
+	<?php
+		$playersList[] = $_POST['data'];
+
+		$inp = file_get_contents('players.json');
+		$tempArray = json_decode($inp);
+		array_push($tempArray, $data);
+		$jsonData = json_encode($tempArray);
+		file_put_contents('players.json', $jsonData);
+	?>
 
 
 	<script type="text/javascript" src="jquery.js"></script>

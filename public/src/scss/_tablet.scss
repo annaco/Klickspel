@@ -265,6 +265,7 @@ label{
 	p {
 		text-align: center;
 		font-size: 1.56em;
+		margin: 0;
 	}
 }
 .playAgain {
@@ -282,5 +283,21 @@ label{
 	}
 	&:hover {
 		cursor: pointer;
+	}
+}
+.ranking {
+	margin: 0 auto;
+	width: 300px;
+    padding: 0;
+	li {
+		font-size: 1.56em;
+		list-style: none;
+	}
+	span {
+		padding-left: 20px;
+		float: right;
+	}
+	img {
+		padding-right: 10px;
 	}
 }

@@ -3,6 +3,7 @@ var recipe;
 var currentRecipe = 0;
 var totalRecipe = 0;
 var id = "";
+var playersList;
 
 $(document).ready(function() {
 	$('#timer').hide();
@@ -12,6 +13,16 @@ $(document).ready(function() {
 		event.preventDefault();
 		//$('.reg').fadeOut();
 		startGame();
+		var name = $('#name').val();
+    	console.log(name);
+    	localStorage.setItem('playerName', name);
+	});
+
+	$.getJSON("../players.json", function(data) {
+		playersList = data.players;
+		totalPlayers = playersList.length;
+		//console.log(totalPlayers);
+		getPlayers();
 	});
 
 	// Connects with JSON - ingredients list
@@ -106,7 +117,6 @@ function padNumber(num) {
 	}
 }
 
-
 function makeDraggable(){
 	$('.draggableItem').draggable({revert: 'invalid'});
 };
@@ -145,14 +155,14 @@ function dragAndDrop() {
 			}
 
 			if ($('.done').length == 4) {
-				setTimeout(endTimer);
+				setTimeout(stopTimer);
 				result();
 			}
 		}
 	});
 }
 
-function endTimer(){
+function stopTimer(){
 	clearInterval(timer);
 }
 
@@ -176,5 +186,17 @@ function result() {
 	$('.playAgain').on('click', function() {
 		window.location = 'index.php?reload=true';
 	});
+}
+
+function getPlayers() {
+	var ranking = "";
+
+	for(i = 0; i < totalPlayers; i++){
+		ranking += '<li>';
+		ranking += '<img src="../img/star-green.png" alt="greenstar">' + playersList[i].name;
+		ranking += '<span>' + playersList[i].time + '</span></li>';
+	}
+
+	$(".ranking").html(ranking);
 }
 
