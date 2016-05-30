@@ -1,6 +1,13 @@
 body {
-	background-color: rgba(0, 0, 0, 0.15);
+	background-color: #ffdab8;
 	position:relative;
+	font-family: 'Nunito', sans-serif;
+}
+
+label{
+	font-size: 1.5em;
+	padding-bottom: 10px;
+	display: block;
 }
 
 #wrapper {
@@ -14,7 +21,7 @@ body {
 	border: 20px solid white;
 }
 
-.reg {
+/*.reg {
 	width:400px;
 	height:150px;
 	z-index:10;
@@ -30,7 +37,7 @@ body {
 	-webkit-border-radius: 25px;
 	-ms-border-radius: 25px;
 	border-radius: 25px; 
-}
+}*/
 
 .ball {
 	content: url(../img/ball.png);
@@ -145,7 +152,6 @@ body {
     position: absolute;
     top: 500px;
     left: 380px;
-    border: solid red 2px;
 }
 .star {
 	content: url(../img/stars2.png);
@@ -163,18 +169,39 @@ body {
 .instruction {
 	width: 100%;
 	height: 100%;
-	//background-color: transparentize(#fff, 0.25);
-	position: absolute;
-	z-index: 2;
+	background-color: transparentize(#000, 0.25);
+	position: relative;
+	z-index: 10;
+
+	.monster {
+		position: absolute;
+		bottom: 0px;
+		margin-left: 150px;;
+
+		img{
+			width: 350px;
+			bottom: -1px;	
+		}
+	}
+
+	.bubble{
+		background-image: url(../img/bubble.png);
+		background-repeat: no-repeat;
+		height: 350px;
+		width: 400px;
+		position: absolute;
+		margin-left: 450px;
+		top: 50px;
+	}
 
 	.intro_text {
 		box-sizing: border-box;
-		padding: 3%;
-		font-family: 'Arial';
-		font-size: 2em;
+		padding: 10%;
 		margin: 0 auto;
 		text-align: center;
+		z-index: 12;
 	}
+
 	button {
 		padding: 1%;
 		font-size: 1em;

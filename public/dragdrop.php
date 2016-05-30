@@ -4,18 +4,10 @@
 <head>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="wrapper">
-
-		<div class="reg">
-			<h1>Välkommen till Kockspelet</h1>
-			<p>Skriv ditt namn i rutan:</p>
-			<form id="form" name="form" method="POST" action="">
-				<input type="text" name="name">
-				<input id="send" type="submit" name="sent" value="skicka">
-			</form>
-		</div>
 
 <?php
 
@@ -30,8 +22,19 @@
 
 
 		<div class="instruction">
-			<p class="intro_text">Lorem ipsum dolor sit amet, maecenas felis donec pede pellentesque quam libero, consequat mauris, ullamcorper ullamcorper non, dolor odio orci, aut donec viverra. Mollicras hendrerit id erat duis. Ullamcorper ullamcorper non.</p>
-			<button id="start" class="start">Börja laga</button>
+			<div class="monster"><img src="../img/monster.png"></div>
+			<div class= "bubble">
+				<div class="intro_text">
+					<h1>Nu ska vi laga pannkakor!</h1>
+					
+					<form id="form" name="form" method="POST" action="">
+					<label>Vad heter du?</label>
+						<input type="text" name="name">
+						<input id="send" type="submit" name="sent" value="skicka">
+					</form>
+					<!--button id="start" class="start">Börja laga</button-->
+				</div>
+			</div>
 		</div>
 
 		<div id="timer">00:00:00</div>
