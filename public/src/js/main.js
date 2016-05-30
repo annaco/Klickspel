@@ -111,13 +111,13 @@ function dragAndDrop() {
 				}
 			}
 			if ($('.done').length == 4) {
-				$('.grattis').show();
-				setTimeout(endGame);
+				setTimeout(endTimer);
+				ranking();
 			}
 		}
 	});
 }
-function endGame(){
+function endTimer(){
 	clearInterval(timer);
 }
 // Pilen pekar ner i kastrullen 3 ggr
@@ -126,5 +126,11 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);
     }
+}
+function ranking() {
+	$('#wrapper').hide();
+	$('#ranking').fadeIn('slow');
+	var recipeTitle = "<img src='"+recipe[0].img+"'>";
+	$('.recipeImg').html(recipeTitle).fadeIn('slow');
 }
 

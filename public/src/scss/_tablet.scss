@@ -2,18 +2,16 @@ body {
 	background-color: rgba(0, 0, 0, 0.15);
 	position:relative;
 }
-
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
 	background-size: 1024px;
-	width: 1000px;
+	width: 1024px;
 	height: 700px;
 	position: relative;
 	margin: 0px auto;
 	border: 20px solid white;
 }
-
 .reg {
 	width:400px;
 	height:150px;
@@ -31,7 +29,6 @@ body {
 	-ms-border-radius: 25px;
 	border-radius: 25px; 
 }
-
 .ball {
 	content: url(../img/ball.png);
 	width: 50px;
@@ -48,7 +45,6 @@ body {
     left: 280px;
     z-index: 1;
 }
-
 .cactus {
 	content: url(../img/cactus.png);
 	width: 60px;
@@ -130,7 +126,6 @@ body {
     left: 450px;
     z-index: 1;
 }
-
 #arrowDown {
 	content: url(../img/arrowDown.png);
 	width: 70px;
@@ -152,13 +147,9 @@ body {
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
-    right: 400;
+    right: 400px;
     width: 100px;
     display: none;
-}
-.grattis {
-	content: url(../img/grattis.gif);
-	display: none;
 }
 .instruction {
 	width: 100%;
@@ -195,12 +186,20 @@ body {
 	display: none;
 }
 #recipe {
-	color: blue;
-	font-size: 2em;
+	
 }
 li {
 	list-style: none;
 	img {
 		width: 80px;
 	}
+}
+#ranking {
+	background-image: url(../img/ranking.png);
+	background-repeat: no-repeat;
+	width: 700px;
+	height: 700px;
+	position: relative;
+	margin: 0px auto;
+	display: none;
 }

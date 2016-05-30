@@ -1,9 +1,11 @@
 <?php
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Klickspel</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 </head>
 <body>
 	<div id="wrapper">
@@ -37,7 +39,7 @@
 		<div id="timer">00:00:00</div>
 
 		<div>
-			<h3 id="recipe"></h3>
+			<div id="recipe"></div>
 			<ul id="ingredients"></ul>
 		</div>
 
@@ -63,12 +65,13 @@
 		<div id="arrowDown"></div>
 		
 		<div class="star"></div>
-		<div class="grattis"></div>
 
-		<div id="result">
-			<div class="name"></div>
-			<div class="time"></div>
-		</div>
+	</div>
+
+	<div id="ranking">
+		<div class="recipeImg"></div>
+		<div class="name"></div>
+		<div class="time"></div>
 	</div>
 
 
