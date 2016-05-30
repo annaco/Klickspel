@@ -118,7 +118,7 @@ function padNumber(num) {
 }
 
 function makeDraggable(){
-	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});
+	$('.draggableItem').draggable({revert: 'invalid'});
 };
 
 function dragAndDrop() {
@@ -128,8 +128,10 @@ function dragAndDrop() {
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
 			// Loops the recipe
+			console.log(userAnswer);
+
 			for (var i=1; i < totalRecipe; i++) {
-				if((recipe[i].id == userAnswer)){
+				if(recipe[i].id == userAnswer){
 
 					// Adds a class when the right ingredient is dropped
 					$(userAnswerID).addClass("done");
@@ -139,12 +141,19 @@ function dragAndDrop() {
 
 					// The stars appear everytime a right ingredient is dropped
 					$('.star').show().animate({
-					    bottom: 250
+					    bottom: '+=150px'
 					}, 'slow', function() { 
 						$(this).removeAttr('style'); 
 					});
+
+					var normalFace = "<img src='../img/normal.png'>";
+					$('#face').html("<img src='../img/success.png'>");
+					setTimeout(function(){
+						$('#face').html(normalFace);
+					}, 1000);
 				}
 			}
+
 			if ($('.done').length == 4) {
 				setTimeout(stopTimer);
 				result();
@@ -163,7 +172,8 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
-    $('#arrowDown').animate({"opacity": "0"}, 1000);
+    $('#arrowDown').fadeOut();
+
 }
 
 function result() {

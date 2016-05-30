@@ -11,7 +11,6 @@
 <body>
 	<div id="wrapper">
 
-
 		<div class="instruction">
 			<div class="monster"><img src="../img/monster.png"></div>
 			<div class= "bubble">
