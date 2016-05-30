@@ -39,9 +39,9 @@
 			</div>
 		</div>
 
-		<div id="timer">00:00:00</div>
+		<div id="timer"><p id="timer_text">00:00</p></div>
 
-		<div>
+		<div id="recipe_list">
 			<div id="recipe"></div>
 			<ul id="ingredients"></ul>
 		</div>

@@ -6,6 +6,7 @@ var id = "";
 $(document).ready(function() {
 	
 	$('#timer').hide();
+	$('#recipe_list').hide();
 
 	$('#send').click(function(event) {
 		event.preventDefault();
@@ -28,6 +29,8 @@ function startGame() {
 	$(".instruction").hide();
 
 	$('#timer').show();
+
+	$('#recipe_list').show();
 
 	// Removes the event listener from the start button
 	$('#start').off('click', startGame);
@@ -87,7 +90,7 @@ function countTime() {
 			time = "0" + minutes + ":" + seconds;
 		}
 	}
-	$('#timer').html(time);
+	$('#timer_text').html(time);
 }
 
 function makeDraggable(){
