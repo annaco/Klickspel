@@ -190,7 +190,7 @@ label{
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
-    right: 400;
+    right: 400px;
     width: 100px;
     display: none;
 }
@@ -250,4 +250,34 @@ label{
 	opacity: 0.3;
 }
 
+#stop {
+	display: none;
+}
+.stop {
+	display: none;
+}
+#recipe {
+	color: blue;
+	font-size: 2em;
+}
+li {
+	list-style: none;
+	img {
+		width: 80px;
+	}
+}
+#ranking {
+	background-image: url(../img/ranking.png);
+	background-repeat: no-repeat;
+	width: 700px;
+	height: 700px;
+	position: relative;
+	margin: 0px auto;
+	display: none;
+	.recipeImg {
+		margin: 0 auto;
+	    width: 202px;
+	    padding-top: 50px;
+	}
+}
 

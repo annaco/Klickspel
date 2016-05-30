@@ -1,7 +1,9 @@
 <?php
 ?>
+<!DOCTYPE html>
 <html>
 <head>
+<title>Klickspel</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
@@ -66,12 +68,13 @@
 		<img src="img/arrowDown.png" id="arrowDown">
 		
 		<img src="img/stars2.png" class="star">
-		<img src="img/grattis.gif" class="grattis">
 
-		<div id="result">
-			<div class="name"></div>
-			<div class="time"></div>
-		</div>
+	</div>
+
+	<div id="ranking">
+		<div class="recipeImg"></div>
+		<div class="name"></div>
+		<div class="time"></div>
 	</div>
 
 

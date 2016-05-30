@@ -122,13 +122,13 @@ function dragAndDrop() {
 				}
 			}
 			if ($('.done').length == 4) {
-				$('.grattis').show();
-				setTimeout(endGame);
+				setTimeout(endTimer);
+				ranking();
 			}
 		}
 	});
 }
-function endGame(){
+function endTimer(){
 	clearInterval(timer);
 }
 // Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
@@ -138,5 +138,11 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
     $('#arrowDown').animate({"opacity": "0"}, 1000);
+}
+function ranking() {
+	$('#wrapper').hide();
+	$('#ranking').fadeIn('slow');
+	var recipeTitle = "<img src='"+recipe[0].img+"'>";
+	$('.recipeImg').html(recipeTitle);
 }
 
