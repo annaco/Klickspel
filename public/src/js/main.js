@@ -140,6 +140,6 @@ function ranking() {
 	$('#wrapper').hide();
 	$('#ranking').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
-	$('.recipeImg').html(recipeTitle).fadeIn('slow');
+	$('.recipeImg').html(recipeTitle);
 }
 
