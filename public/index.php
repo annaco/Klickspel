@@ -12,7 +12,7 @@
 	<div id="wrapper">
 
 		<div class="instruction">
-			<div class="monster"><img src="../img/monster.png"></div>
+			<div class="monster"><img src="img/monster.png"></div>
 			<div class= "bubble">
 				<div class="intro_text">
 					<h1>Nu ska vi laga pannkakor!</h1>
@@ -54,6 +54,8 @@
 		<img src="img/ball.png" class="draggableItem ball">
 
 		<img src="img/pepper.png" class="draggableItem pepper">
+
+		<div id="face"><img src="img/normal.png"></div>
 
 		<div id="items"></div>
 
