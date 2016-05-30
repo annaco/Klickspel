@@ -5,10 +5,12 @@ var totalRecipe = 0;
 var id = "";
 $(document).ready(function() {
 	
+	$('#timer').hide();
+
 	$('#send').click(function(event) {
 		event.preventDefault();
-		$('.reg').fadeOut();
-		
+		//$('.reg').fadeOut();
+		startGame();
 	});
 
 	// Connects with JSON - ingredients list
@@ -18,12 +20,14 @@ $(document).ready(function() {
 		getIngredients();
 	});
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
-	$("#start").on('click', startGame);
+	//$("#start").on('click', startGame);
 });
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
 	$(".instruction").hide();
+
+	$('#timer').show();
 
 	// Removes the event listener from the start button
 	$('#start').off('click', startGame);
@@ -38,6 +42,7 @@ function startGame() {
 	arrowDown();
 	getList();
 }
+
 function getList() {
 	// Displays the ingredients list
 	var ingredients = "";
@@ -51,6 +56,7 @@ function getList() {
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
 }
+
 function getIngredients() {
 	var items = "";
 	for (var i=1; i < totalRecipe; i++) {
@@ -60,6 +66,7 @@ function getIngredients() {
 	makeDraggable();
 	dragAndDrop();
 }
+
 function countTime() {
 	currentTime++; 
 	var time = "";
@@ -82,6 +89,7 @@ function countTime() {
 	}
 	$('#timer').html(time);
 }
+
 function makeDraggable(){
 	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});
 };
@@ -120,12 +128,13 @@ function dragAndDrop() {
 function endTimer(){
 	clearInterval(timer);
 }
-// Pilen pekar ner i kastrullen 3 ggr
+// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
-		$("#arrowDown").animate({ "top": "-=40px" }, 450);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
+    $('#arrowDown').animate({"opacity": "0"}, 1000);
 }
 function ranking() {
 	$('#wrapper').hide();

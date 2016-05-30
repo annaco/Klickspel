@@ -1,18 +1,43 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @natnakagawa
+ Unwatch 4
+  Star 0
+ Fork 0 annaco/Klickspel
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathKlickspel/public/src/scss/_tablet.scss
+5d676de  3 minutes ago
+@miahellqvist miahellqvist Introsidan fixad
+2 contributors @miahellqvist @annaco
+RawBlameHistory     221 lines (209 sloc)  2.97 KB
 body {
-	background-color: rgba(0, 0, 0, 0.15);
+	background-color: #ffdab8;
 	position:relative;
+	font-family: 'Nunito', sans-serif;
 }
+
+label{
+	font-size: 1.5em;
+	padding-bottom: 10px;
+	display: block;
+}
+
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
 	background-size: 1024px;
-	width: 1024px;
+	width: 1000px;
 	height: 700px;
 	position: relative;
 	margin: 0px auto;
 	border: 20px solid white;
 }
-.reg {
+
+/*.reg {
 	width:400px;
 	height:150px;
 	z-index:10;
@@ -28,9 +53,9 @@ body {
 	-webkit-border-radius: 25px;
 	-ms-border-radius: 25px;
 	border-radius: 25px; 
-}
+}*/
+
 .ball {
-	content: url(../img/ball.png);
 	width: 50px;
 	position: absolute;
 	top: 65px;
@@ -38,15 +63,14 @@ body {
     z-index: 1;
 }
 .banana {
-	content: url(../img/banana.png);
 	width: 75px;
 	position: absolute;
 	top: 465px;
     left: 280px;
     z-index: 1;
 }
+
 .cactus {
-	content: url(../img/cactus.png);
 	width: 60px;
 	position: absolute;
 	top: 260px;
@@ -54,7 +78,6 @@ body {
     z-index: 1;
 }
 .candy {
-	content: url(../img/candy.png);
 	width: 70px;
 	position: absolute;
 	top: 300px;
@@ -62,7 +85,6 @@ body {
     z-index: 1;
 }
 .carrot {
-	content: url(../img/carrot.png);
 	width: 110px;
 	position: absolute;
 	top: 475px;
@@ -71,7 +93,6 @@ body {
 }
 
 .duck {
-	content: url(../img/duck.png);
 	width: 60px;
 	position: absolute;
 	top: 390px;
@@ -79,7 +100,6 @@ body {
     z-index: 1;
 }
 .egg {
-	content: url(../img/egg.png);
 	width: 85px;
 	position: absolute;
 	top: 375px;
@@ -87,7 +107,6 @@ body {
     z-index: 1;
 }
 .flour {
-	content: url(../img/flour.png);
 	width: 70px;
 	position: absolute;
 	top: 137px;
@@ -95,7 +114,6 @@ body {
     z-index: 1;
 }
 .juice {
-	content: url(../img/juice.png);
 	width: 38px;
 	position: absolute;
 	top: 255px;
@@ -103,7 +121,6 @@ body {
     z-index: 1;
 }
 .milk {
-	content: url(../img/milk.png);
 	width: 50px;
 	position: absolute;
 	top: 382px;
@@ -111,7 +128,6 @@ body {
     z-index: 1;
 }
 .pepper {
-	content: url(../img/pepper.png);
 	width: 32px;
 	position: absolute;
 	top: 170px;
@@ -119,15 +135,14 @@ body {
     z-index: 1;
 }
 .salt {
-	content: url(../img/salt.png);
 	width: 32px;
 	position: absolute;
 	top: 170px;
     left: 450px;
     z-index: 1;
 }
+
 #arrowDown {
-	content: url(../img/arrowDown.png);
 	width: 70px;
 	position: absolute;
 	top: 360px;
@@ -140,32 +155,54 @@ body {
     position: absolute;
     top: 500px;
     left: 380px;
-    border: solid red 2px;
 }
 .star {
-	content: url(../img/stars2.png);
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
-    right: 400px;
+    right: 400;
     width: 100px;
     display: none;
+}
+.grattis {
+	display: none;
 }
 .instruction {
 	width: 100%;
 	height: 100%;
-	//background-color: transparentize(#fff, 0.25);
-	position: absolute;
-	z-index: 2;
+	background-color: transparentize(#000, 0.25);
+	position: relative;
+	z-index: 10;
+
+	.monster {
+		position: absolute;
+		bottom: 0px;
+		margin-left: 150px;;
+
+		img{
+			width: 350px;
+			bottom: -1px;	
+		}
+	}
+
+	.bubble{
+		background-image: url(../img/bubble.png);
+		background-repeat: no-repeat;
+		height: 350px;
+		width: 400px;
+		position: absolute;
+		margin-left: 450px;
+		top: 50px;
+	}
 
 	.intro_text {
 		box-sizing: border-box;
-		padding: 3%;
-		font-family: 'Arial';
-		font-size: 2em;
+		padding: 10%;
 		margin: 0 auto;
 		text-align: center;
+		z-index: 12;
 	}
+
 	button {
 		padding: 1%;
 		font-size: 1em;
@@ -185,8 +222,12 @@ body {
 #stop {
 	display: none;
 }
+.stop {
+	display: none;
+}
 #recipe {
-	
+	color: blue;
+	font-size: 2em;
 }
 li {
 	list-style: none;
@@ -202,4 +243,7 @@ li {
 	position: relative;
 	margin: 0px auto;
 	display: none;
+	.recipeImg {
+		width: 
+	}
 }

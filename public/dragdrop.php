@@ -1,17 +1,10 @@
 <?php
 ?>
-<!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-	<title>Klickspel</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-=======
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
->>>>>>> 5d676de17e072570aa125b1f0606b9240255ef6e
 </head>
 <body>
 	<div id="wrapper">
@@ -47,52 +40,44 @@
 		<div id="timer">00:00:00</div>
 
 		<div>
-			<div id="recipe"></div>
+			<h3 id="recipe"></h3>
 			<ul id="ingredients"></ul>
 		</div>
 
-		<img src="img/banana.png" class="draggableItem banana">
+		<div class="draggableItem banana"></div>
 
-		<img src="img/cactus.png" class="draggableItem cactus">
+		<div class="draggableItem cactus"></div>
 
-		<img src="img/candy.png" class="draggableItem candy">
+		<div class="draggableItem candy"></div>
 
-		<img src="img/carrot.png" class="draggableItem carrot">
+		<div class="draggableItem carrot"></div>
 
-		<img src="img/duck.png" class="draggableItem duck">
+		<div class="draggableItem duck"></div>
 
-		<img src="img/juice.png" class="draggableItem juice">
+		<div class="draggableItem juice"></div>
 
-		<img src="img/ball.png" class="draggableItem ball">
+		<div class="draggableItem ball"></div>
 
-		<img src="img/pepper.png" class="draggableItem pepper">
+		<div class="draggableItem pepper"></div>
 
 		<div id="items"></div>
 
 		<div class="kastrull"></div>
-		<img src="img/arrowDown.png" id="arrowDown">
+		<div id="arrowDown"></div>
 		
-<<<<<<< HEAD
 		<div class="star"></div>
-=======
-		<img src="img/stars2.png" class="star">
-		<img src="img/grattis.gif" class="grattis">
->>>>>>> 5d676de17e072570aa125b1f0606b9240255ef6e
+		<div class="grattis"></div>
 
-	</div>
-
-	<div id="ranking">
-		<div class="recipeImg"></div>
-		<div class="name"></div>
-		<div class="time"></div>
+		<div id="result">
+			<div class="name"></div>
+			<div class="time"></div>
+		</div>
 	</div>
 
 
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
-	<script src="jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="src/js/main.js"></script>
-
 </body>
 </html>
 
