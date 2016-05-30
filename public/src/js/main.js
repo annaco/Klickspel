@@ -1,11 +1,12 @@
-var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems = 0;
+var timer, points = 0, timerCount = 0, correctItems = 0;
 var recipe;
 var currentRecipe = 0;
 var totalRecipe = 0;
 var id = "";
+
 $(document).ready(function() {
-	
 	$('#timer').hide();
+	$('#recipe_list').hide();
 
 	$('#send').click(function(event) {
 		event.preventDefault();
@@ -18,6 +19,11 @@ $(document).ready(function() {
 		recipe = data.recipe;
 		totalRecipe = recipe.length;
 		getIngredients();
+
+		// Gå directly to the game if the player wants to play the game again
+		if(window.location.href.indexOf('reload=true') > -1) {
+			startGame();
+		}
 	});
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	//$("#start").on('click', startGame);
@@ -28,6 +34,8 @@ function startGame() {
 	$(".instruction").hide();
 
 	$('#timer').show();
+
+	$('#recipe_list').show();
 
 	// Removes the event listener from the start button
 	$('#start').off('click', startGame);
@@ -44,7 +52,7 @@ function startGame() {
 }
 
 function getList() {
-	// Displays the ingredients list
+	// Displays the recipe list
 	var ingredients = "";
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	
@@ -53,42 +61,51 @@ function getList() {
 		ingredients += "<img src='"+recipe[i].img+"'>";
 		ingredients += "</li>";
 	}
+
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
 }
 
 function getIngredients() {
+	// Gets the ingredients and displays them
 	var items = "";
+
 	for (var i=1; i < totalRecipe; i++) {
 		items += "<img src='"+recipe[i].img+"' class='draggableItem ok "+recipe[i].ingr+"' id='"+recipe[i].id+"'>";
 	}
 	$('#items').html(items);
+
+	// functions
 	makeDraggable();
 	dragAndDrop();
 }
 
 function countTime() {
-	currentTime++; 
-	var time = "";
 
-	//If less than one minute has passed show seconds else start counting minutes
-	if(currentTime < 60){
-		if(currentTime < 10){
-			time = "00:0" + currentTime;
-		}else{
-			time = "00:" + currentTime;
-		}
-	}else{	
-		minutes = Math.floor(currentTime/60);	
-		var seconds = Number(currentTime-60);
-		if(seconds < 10){
-			time = "0" + minutes + ":0" + seconds;
-		}else{
-			time = "0" + minutes + ":" + seconds;
-		}
+	timerCount++;
+
+	var minutes = Math.floor(timerCount/60);
+	var hours = Math.floor(minutes/60); // TODO: Fix that the timer works indefinitely
+
+	if(minutes<60){
+	$("#timer_text").html(padNumber(minutes) + ":" + padNumber(timerCount - (minutes * 60)));
+	}else{
+		$("#timer_text").html(padNumber(hours) + ":" + padNumber(minutes - (hours * 60)) + ":" + padNumber(timerCount - (minutes * 60)));
 	}
-	$('#timer').html(time);
 }
+
+/**
+* Pad a number with a zero if it's less than 10
+* @param {number} num - Input number to check if it's less than 10
+**/
+function padNumber(num) {
+	if(num < 10) {
+		return "0"+num;
+	} else {
+		return num;
+	}
+}
+
 
 function makeDraggable(){
 	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});
@@ -120,14 +137,16 @@ function dragAndDrop() {
 			}
 			if ($('.done').length == 4) {
 				setTimeout(endTimer);
-				ranking();
+				result();
 			}
 		}
 	});
 }
+
 function endTimer(){
 	clearInterval(timer);
 }
+
 // Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
@@ -137,10 +156,16 @@ function arrowDown() {
     $('#arrowDown').fadeOut();
 
 }
-function ranking() {
+
+function result() {
 	$('#wrapper').hide();
-	$('#ranking').fadeIn('slow');
+	$('#result').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
-	$('.recipeImg').html(recipeTitle).fadeIn('slow');
+	$('.recipeImg').html(recipeTitle);
+
+	// If the player wants to play the game again, go back to the game
+	$('.playAgain').on('click', function() {
+		window.location = 'index.php?reload=true';
+	});
 }
 

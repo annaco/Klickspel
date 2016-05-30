@@ -13,17 +13,6 @@
 <body>
 	<div id="wrapper">
 
-<?php
-
-	if(isset($_POST['name'])){
-
-	$name = $_POST['name'];
-
-	echo '<br>Välkommen ' . $name;
-
-	}
-?>	
-
 
 		<div class="instruction">
 			<div class="monster"><img src="../img/monster.png"></div>
@@ -41,9 +30,9 @@
 			</div>
 		</div>
 
-		<div id="timer">00:00:00</div>
+		<div id="timer"><p id="timer_text">00:00</p></div>
 
-		<div>
+		<div id="recipe_list">
 			<div id="recipe"></div>
 			<ul id="ingredients"></ul>
 		</div>
@@ -73,11 +62,19 @@
 
 	</div>
 
-	<div id="ranking">
+	<div id="result">
 		<div class="recipeImg"></div>
-		<div class="name"></div>
-		<div class="time"></div>
+		<div class="nameAndTime"></div>
+		<p>Snabbaste spelarna</p>
+		<ul class="ranking">
+			
+		</ul>
+		<div class="playAgain">
+			<img src="img/button.png" allt="playagain">
+			<p>Spela igen</p>
+		</div>
 	</div>
+	
 
 
 	<script type="text/javascript" src="jquery.js"></script>
