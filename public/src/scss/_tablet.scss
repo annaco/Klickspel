@@ -44,6 +44,7 @@ label{
 	padding: 20px;
 	width: 120px;
 	margin: 10px;
+	border: red solid 1px;
 
 	#recipe{
 		img{
@@ -256,16 +257,7 @@ label{
 .stop {
 	display: none;
 }
-#recipe {
-	color: blue;
-	font-size: 2em;
-}
-li {
-	list-style: none;
-	img {
-		width: 80px;
-	}
-}
+
 #ranking {
 	background-image: url(../img/ranking.png);
 	background-repeat: no-repeat;
