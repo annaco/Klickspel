@@ -35,9 +35,9 @@
 			<ul id="ingredients"></ul>
 		</div>
 
-		<img src="img/banana.png" class="draggableItem banana">
+		<img src="img/banana.png" id="8" class="draggableItem notOk banana">
 
-		<img src="img/cactus.png" class="draggableItem cactus">
+		<img src="img/cactus.png" id="9" class="draggableItem cactus">
 
 		<img src="img/candy.png" class="draggableItem candy">
 
@@ -50,6 +50,8 @@
 		<img src="img/ball.png" class="draggableItem ball">
 
 		<img src="img/pepper.png" class="draggableItem pepper">
+
+		<div id="face"><img src="../img/normal.png"></div>
 
 		<div id="items"></div>
 

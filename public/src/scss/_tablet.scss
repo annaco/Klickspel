@@ -67,23 +67,19 @@ label{
 	}
 }
 
-/*.reg {
-	width:400px;
-	height:150px;
-	z-index:10;
-	margin:50px;
-	padding:100px;
-	background-color: #f4f4cb;
-	border:2px solid black;
-	position:absolute;
-	top:25px;
-	left:25px;
-	border-radius: 25px; 
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	-ms-border-radius: 25px;
-	border-radius: 25px; 
-}*/
+#face{
+	width: 100px;
+	height: 100px;
+	//border: red solid 1px;
+	position: absolute;
+	top: 387px;
+    left: 610px;
+	z-index: 1;
+
+	img{
+		width: 90px;
+	}
+}
 
 .ball {
 	width: 50px;
