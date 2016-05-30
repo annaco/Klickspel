@@ -1,8 +1,9 @@
-var timer, minutes, points = 0, currentSecond = 0, currentTime = 0, correctItems = 0;
+var timer, points = 0, timerCount = 0, correctItems = 0;
 var recipe;
 var currentRecipe = 0;
 var totalRecipe = 0;
 var id = "";
+
 $(document).ready(function() {
 	
 	$('#timer').hide();
@@ -71,27 +72,31 @@ function getIngredients() {
 }
 
 function countTime() {
-	currentTime++; 
-	var time = "";
 
-	//If less than one minute has passed show seconds else start counting minutes
-	if(currentTime < 60){
-		if(currentTime < 10){
-			time = "00:0" + currentTime;
-		}else{
-			time = "00:" + currentTime;
-		}
-	}else{	
-		minutes = Math.floor(currentTime/60);	
-		var seconds = Number(currentTime-60);
-		if(seconds < 10){
-			time = "0" + minutes + ":0" + seconds;
-		}else{
-			time = "0" + minutes + ":" + seconds;
-		}
+	timerCount++;
+
+	var minutes = Math.floor(timerCount/60);
+	var hours = Math.floor(minutes/60); // TODO: Fix that the timer works indefinitely
+
+	if(minutes<60){
+	$("#timer_text").html(padNumber(minutes) + ":" + padNumber(timerCount - (minutes * 60)));
+	}else{
+		$("#timer_text").html(padNumber(hours) + ":" + padNumber(minutes - (hours * 60)) + ":" + padNumber(timerCount - (minutes * 60)));
 	}
-	$('#timer_text').html(time);
 }
+
+/**
+* Pad a number with a zero if it's less than 10
+* @param {number} num - Input number to check if it's less than 10
+**/
+function padNumber(num) {
+	if(num < 10) {
+		return "0"+num;
+	} else {
+		return num;
+	}
+}
+
 
 function makeDraggable(){
 	$('.draggableItem').draggable({revert: 'invalid', cursor: 'pointer'});

@@ -30,8 +30,8 @@ label{
 	text-align: center;
 	margin: 10px;
 
-	p{
-		font-size: 2em;
+	#timer_text{
+		font-size: 1.5em;
 		margin: 0px;
 		padding-top: 38px;
 	}
@@ -44,7 +44,6 @@ label{
 	padding: 20px;
 	width: 120px;
 	margin: 10px;
-	border: red solid 1px;
 
 	#recipe{
 		img{
@@ -89,23 +88,23 @@ label{
 .ball {
 	width: 50px;
 	position: absolute;
-	top: 65px;
+	top: 60px;
     left: 270px;
     z-index: 1;
 }
 .banana {
 	width: 75px;
 	position: absolute;
-	top: 465px;
-    left: 280px;
+	top: 455px;
+    left: 270px;
     z-index: 1;
 }
 
 .cactus {
 	width: 60px;
 	position: absolute;
-	top: 260px;
-    left: 870px;
+	top: 255px;
+    left: 850px;
     z-index: 1;
 }
 .candy {
@@ -118,57 +117,57 @@ label{
 .carrot {
 	width: 110px;
 	position: absolute;
-	top: 475px;
-    left: 170px;
+	top: 460px;
+    left: 155px;
     z-index: 1;
 }
 
 .duck {
 	width: 60px;
 	position: absolute;
-	top: 390px;
-    left: 280px;
+	top: 380px;
+    left: 270px;
     z-index: 1;
 }
 .egg {
 	width: 85px;
 	position: absolute;
-	top: 375px;
+	top: 365px;
     left: 170px;
     z-index: 1;
 }
 .flour {
 	width: 70px;
 	position: absolute;
-	top: 137px;
+	top: 130px;
     left: 270px;
     z-index: 1;
 }
 .juice {
 	width: 38px;
 	position: absolute;
-	top: 255px;
-    left: 935px;
+	top: 250px;
+    left: 920px;
     z-index: 1;
 }
 .milk {
 	width: 50px;
 	position: absolute;
-	top: 382px;
+	top: 370px;
     left: 890px;
     z-index: 1;
 }
 .pepper {
 	width: 32px;
 	position: absolute;
-	top: 170px;
+	top: 160px;
     left: 500px;
     z-index: 1;
 }
 .salt {
 	width: 32px;
 	position: absolute;
-	top: 170px;
+	top: 160px;
     left: 450px;
     z-index: 1;
 }
@@ -207,7 +206,7 @@ label{
 
 	.monster {
 		position: absolute;
-		bottom: 0px;
+		bottom: -5px;
 		margin-left: 150px;;
 
 		img{
@@ -249,13 +248,6 @@ label{
 }
 .done {
 	opacity: 0.3;
-}
-
-#stop {
-	display: none;
-}
-.stop {
-	display: none;
 }
 
 #ranking {

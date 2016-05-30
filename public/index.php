@@ -11,17 +11,6 @@
 <body>
 	<div id="wrapper">
 
-<?php
-
-	if(isset($_POST['name'])){
-
-	$name = $_POST['name'];
-
-	echo '<br>Välkommen ' . $name;
-
-	}
-?>	
-
 
 		<div class="instruction">
 			<div class="monster"><img src="../img/monster.png"></div>
