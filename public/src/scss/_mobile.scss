@@ -35,6 +35,53 @@ body {
 	-ms-border-radius: 25px;
 	border-radius: 25px; 
 }*/
+#timer{
+	background-image: url(../img/timer.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	margin: 10px;
+
+	#timer_text{
+		font-size: 1em;
+		margin: 0px;
+		padding-top: 20%;
+	}
+}
+
+#recipe_list{
+	background-image: url(../img/recipe.png);
+	background-repeat: no-repeat;
+	background-size: 100%; 
+	padding: 2%;
+	width: 50px;
+	height: 150px;
+	margin: 16% 1%;
+
+	#recipe{
+		img{
+			width: 100%;
+		}
+	}
+
+	ul{
+		padding: 0px;
+		padding: 1% 1% 0 5%;
+		margin: 32% 0 1% 0%;
+		li {
+			list-style: none;
+			margin: 0px;
+			text-align: center;
+		img {
+			height: 23px;
+			
+		}
+	}
+	}
+}
+
 .ball {
 	width: 6%;
 	position: absolute;
@@ -206,25 +253,7 @@ body {
 .done {
 	opacity: 0.3;
 }
-#recipe {
-	color: blue;
-	font-size: 2em;
-	img {
-		width: 20%;
-	}
-}
-ul {
-	padding: 0 1% 0 5%;
-	margin: 0 0 1% 0;
-}
-li {
-	list-style: none;
-	img {
-		width: 8%;
-		height: 2%;
-	}
-}
-#ranking {
+#result {
 	background-image: url(../img/ranking.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -241,6 +270,28 @@ li {
 	    img {
 	    	width: 100%;
 	    }
+	}
+	p {
+		text-align: center;
+		font-size: 1em;
+	}
+}
+.playAgain {
+	
+	width: 30%;
+    margin: 0 auto;
+	img {
+		position: absolute;
+		width: 30%;
+	}
+	p {
+		text-align: center;
+	    margin: 0;
+	    position: relative;
+	    padding-top: 10%;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
 
