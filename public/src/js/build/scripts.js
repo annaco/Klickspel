@@ -128,11 +128,12 @@ function dragAndDrop() {
 function endGame(){
 	clearInterval(timer);
 }
-// Pilen pekar ner i kastrullen 3 ggr
+// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
-		$("#arrowDown").animate({ "top": "-=40px" }, 450);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
+    $('#arrowDown').animate({"opacity": "0"}, 1000);
 }
 
