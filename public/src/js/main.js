@@ -5,7 +5,6 @@ var totalRecipe = 0;
 var id = "";
 
 $(document).ready(function() {
-	
 	$('#timer').hide();
 	$('#recipe_list').hide();
 
@@ -20,6 +19,11 @@ $(document).ready(function() {
 		recipe = data.recipe;
 		totalRecipe = recipe.length;
 		getIngredients();
+
+		// Gå directly to the game if the player wants to play the game again
+		if(window.location.href.indexOf('reload=true') > -1) {
+			startGame();
+		}
 	});
 	// När man klickar på "börja laga" i instruktionsrutan startar spelet
 	//$("#start").on('click', startGame);
@@ -48,7 +52,7 @@ function startGame() {
 }
 
 function getList() {
-	// Displays the ingredients list
+	// Displays the recipe list
 	var ingredients = "";
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	
@@ -57,16 +61,21 @@ function getList() {
 		ingredients += "<img src='"+recipe[i].img+"'>";
 		ingredients += "</li>";
 	}
+
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
 }
 
 function getIngredients() {
+	// Gets the ingredients and displays them
 	var items = "";
+
 	for (var i=1; i < totalRecipe; i++) {
 		items += "<img src='"+recipe[i].img+"' class='draggableItem ok "+recipe[i].ingr+"' id='"+recipe[i].id+"'>";
 	}
 	$('#items').html(items);
+
+	// functions
 	makeDraggable();
 	dragAndDrop();
 }
@@ -128,14 +137,16 @@ function dragAndDrop() {
 			}
 			if ($('.done').length == 4) {
 				setTimeout(endTimer);
-				ranking();
+				result();
 			}
 		}
 	});
 }
+
 function endTimer(){
 	clearInterval(timer);
 }
+
 // Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
@@ -144,10 +155,16 @@ function arrowDown() {
     }
     $('#arrowDown').animate({"opacity": "0"}, 1000);
 }
-function ranking() {
+
+function result() {
 	$('#wrapper').hide();
-	$('#ranking').fadeIn('slow');
+	$('#result').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	$('.recipeImg').html(recipeTitle);
+
+	// If the player wants to play the game again, go back to the game
+	$('.playAgain').on('click', function() {
+		window.location = 'index.php?reload=true';
+	});
 }
 

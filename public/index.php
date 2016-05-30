@@ -60,11 +60,19 @@
 
 	</div>
 
-	<div id="ranking">
+	<div id="result">
 		<div class="recipeImg"></div>
-		<div class="name"></div>
-		<div class="time"></div>
+		<div class="nameAndTime"></div>
+		<p>Snabbaste spelarna</p>
+		<ul class="ranking">
+			
+		</ul>
+		<div class="playAgain">
+			<img src="img/button.png" allt="playagain">
+			<p>Spela igen</p>
+		</div>
 	</div>
+	
 
 
 	<script type="text/javascript" src="jquery.js"></script>
