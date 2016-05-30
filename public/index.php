@@ -41,29 +41,29 @@
 			<ul id="ingredients"></ul>
 		</div>
 
-		<div class="draggableItem banana"></div>
+		<img src="img/banana.png" class="draggableItem banana">
 
-		<div class="draggableItem cactus"></div>
+		<img src="img/cactus.png" class="draggableItem cactus">
 
-		<div class="draggableItem candy"></div>
+		<img src="img/candy.png" class="draggableItem candy">
 
-		<div class="draggableItem carrot"></div>
+		<img src="img/carrot.png" class="draggableItem carrot">
 
-		<div class="draggableItem duck"></div>
+		<img src="img/duck.png" class="draggableItem duck">
 
-		<div class="draggableItem juice"></div>
+		<img src="img/juice.png" class="draggableItem juice">
 
-		<div class="draggableItem ball"></div>
+		<img src="img/ball.png" class="draggableItem ball">
 
-		<div class="draggableItem pepper"></div>
+		<img src="img/pepper.png" class="draggableItem pepper">
 
 		<div id="items"></div>
 
 		<div class="kastrull"></div>
-		<div id="arrowDown"></div>
+		<img src="img/arrowDown.png" id="arrowDown">
 		
-		<div class="star"></div>
-		<div class="grattis"></div>
+		<img src="img/stars2.png" class="star">
+		<img src="img/grattis.gif" class="grattis">
 
 		<div id="result">
 			<div class="name"></div>
@@ -74,7 +74,9 @@
 
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+	<script src="jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="src/js/main.js"></script>
+
 </body>
 </html>
 

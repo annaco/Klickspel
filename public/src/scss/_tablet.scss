@@ -33,7 +33,6 @@ body {
 }
 
 .ball {
-	content: url(../img/ball.png);
 	width: 50px;
 	position: absolute;
 	top: 65px;
@@ -41,7 +40,6 @@ body {
     z-index: 1;
 }
 .banana {
-	content: url(../img/banana.png);
 	width: 75px;
 	position: absolute;
 	top: 465px;
@@ -50,7 +48,6 @@ body {
 }
 
 .cactus {
-	content: url(../img/cactus.png);
 	width: 60px;
 	position: absolute;
 	top: 260px;
@@ -58,7 +55,6 @@ body {
     z-index: 1;
 }
 .candy {
-	content: url(../img/candy.png);
 	width: 70px;
 	position: absolute;
 	top: 300px;
@@ -66,7 +62,6 @@ body {
     z-index: 1;
 }
 .carrot {
-	content: url(../img/carrot.png);
 	width: 110px;
 	position: absolute;
 	top: 475px;
@@ -75,7 +70,6 @@ body {
 }
 
 .duck {
-	content: url(../img/duck.png);
 	width: 60px;
 	position: absolute;
 	top: 390px;
@@ -83,7 +77,6 @@ body {
     z-index: 1;
 }
 .egg {
-	content: url(../img/egg.png);
 	width: 85px;
 	position: absolute;
 	top: 375px;
@@ -91,7 +84,6 @@ body {
     z-index: 1;
 }
 .flour {
-	content: url(../img/flour.png);
 	width: 70px;
 	position: absolute;
 	top: 137px;
@@ -99,7 +91,6 @@ body {
     z-index: 1;
 }
 .juice {
-	content: url(../img/juice.png);
 	width: 38px;
 	position: absolute;
 	top: 255px;
@@ -107,7 +98,6 @@ body {
     z-index: 1;
 }
 .milk {
-	content: url(../img/milk.png);
 	width: 50px;
 	position: absolute;
 	top: 382px;
@@ -115,7 +105,6 @@ body {
     z-index: 1;
 }
 .pepper {
-	content: url(../img/pepper.png);
 	width: 32px;
 	position: absolute;
 	top: 170px;
@@ -123,7 +112,6 @@ body {
     z-index: 1;
 }
 .salt {
-	content: url(../img/salt.png);
 	width: 32px;
 	position: absolute;
 	top: 170px;
@@ -132,7 +120,6 @@ body {
 }
 
 #arrowDown {
-	content: url(../img/arrowDown.png);
 	width: 70px;
 	position: absolute;
 	top: 360px;
@@ -148,7 +135,6 @@ body {
     border: solid red 2px;
 }
 .star {
-	content: url(../img/stars2.png);
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
@@ -157,7 +143,6 @@ body {
     display: none;
 }
 .grattis {
-	content: url(../img/grattis.gif);
 	display: none;
 }
 .instruction {
@@ -192,6 +177,9 @@ body {
 	opacity: 0.3;
 }
 #stop {
+	display: none;
+}
+.stop {
 	display: none;
 }
 #recipe {
