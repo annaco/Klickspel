@@ -118,11 +118,32 @@ function padNumber(num) {
 	}
 }
 
-function makeDraggable(){
-	$('.draggableItem').draggable({revert: 'invalid'});
-};
+/*function makeDraggable(){
+	$('.draggableItem').draggable({
+		revert: function(sadFace){
+			console.log("Sad!");
+		}
+		if()
+	});
+}*/
 
 function dragAndDrop() {
+
+	$('.draggableItem').draggable({
+		revert: function(happyFace){
+
+			if(!happyFace){
+				var normalFace = "<img src='../img/normal.png'>";
+					$('#face').html("<img src='../img/fail.png'>");
+					setTimeout(function(){
+						$('#face').html(normalFace);
+					}, 1000);
+				return true;
+
+			}
+		}
+	});
+
 	$('.kastrull').droppable({
 		accept: '.ok',
 		drop:function(event, ui){
@@ -175,8 +196,9 @@ function arrowDown() {
     }
     $('#arrowDown').fadeOut();
 
+    //Starts timer and activates dragable objects
     setTimeout(startTimer, 3150);
-	setTimeout(makeDraggable, 3150);
+	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
 
 }
