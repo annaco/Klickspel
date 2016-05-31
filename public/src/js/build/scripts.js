@@ -54,12 +54,12 @@ function startGame() {
 	// Removes the start button when the game is started
 	$('#start').hide();
 
-	// Starts the timer function
-	timer = setInterval(countTime, 1000);
+	
 
 	// functions
-	arrowDown();
 	getList();
+	arrowDown();
+	
 }
 
 function getList() {
@@ -85,10 +85,11 @@ function getIngredients() {
 		items += "<img src='"+recipe[i].img+"' class='draggableItem ok "+recipe[i].ingr+"' id='"+recipe[i].id+"'>";
 	}
 	$('#items').html(items);
+}
 
-	// functions
-	makeDraggable();
-	dragAndDrop();
+function startTimer(){
+	// Starts the timer function
+	timer = setInterval(countTime, 1000);
 }
 
 function countTime() {
@@ -173,6 +174,10 @@ function arrowDown() {
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
     $('#arrowDown').fadeOut();
+
+    setTimeout(startTimer, 3150);
+	setTimeout(makeDraggable, 3150);
+	setTimeout(dragAndDrop, 3150);
 
 }
 
