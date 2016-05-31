@@ -29,7 +29,6 @@ label{
 	width: 150px;
 	text-align: center;
 	margin: 10px;
-	display: none;
 
 	#timer_text{
 		font-size: 1.5em;
@@ -45,7 +44,6 @@ label{
 	padding: 20px;
 	width: 120px;
 	margin: 10px;
-	display: none;
 
 	#recipe{
 		img{
@@ -243,13 +241,6 @@ label{
 }
 .done {
 	opacity: 0.3;
-}
-
-#stop {
-	display: none;
-}
-.stop {
-	display: none;
 }
 #result {
 	background-image: url(../img/ranking.png);
