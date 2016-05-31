@@ -11,7 +11,6 @@ $(document).ready(function() {
 
 	$('#send').click(function(event) {
 		event.preventDefault();
-		//$('.reg').fadeOut();
 		startGame();
 		var name = $('#name').val();
     	console.log(name);
@@ -21,7 +20,6 @@ $(document).ready(function() {
 	$.getJSON("../players.json", function(data) {
 		playersList = data.players;
 		totalPlayers = playersList.length;
-		//console.log(totalPlayers);
 		getPlayers();
 	});
 
@@ -36,8 +34,7 @@ $(document).ready(function() {
 			startGame();
 		}
 	});
-	// När man klickar på "börja laga" i instruktionsrutan startar spelet
-	//$("#start").on('click', startGame);
+
 });
 
 function startGame() {
@@ -106,10 +103,6 @@ function countTime() {
 	}
 }
 
-/**
-* Pad a number with a zero if it's less than 10
-* @param {number} num - Input number to check if it's less than 10
-**/
 function padNumber(num) {
 	if(num < 10) {
 		return "0"+num;
@@ -117,15 +110,6 @@ function padNumber(num) {
 		return num;
 	}
 }
-
-/*function makeDraggable(){
-	$('.draggableItem').draggable({
-		revert: function(sadFace){
-			console.log("Sad!");
-		}
-		if()
-	});
-}*/
 
 function dragAndDrop() {
 
@@ -165,7 +149,7 @@ function dragAndDrop() {
 					$('.star').show().animate({
 					    bottom: '+=150px'
 					}, 'slow', function() { 
-						$(this).removeAttr('style'); 
+						$(this).removeAttr('style');  
 					});
 
 					var normalFace = "<img src='../img/normal.png'>";
@@ -178,7 +162,7 @@ function dragAndDrop() {
 
 			if ($('.done').length == 4) {
 				setTimeout(stopTimer);
-				result();
+				setTimeout(finnishedGame, 1000);
 			}
 		}
 	});
@@ -191,16 +175,38 @@ function stopTimer(){
 // Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
-		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
+		$("#arrowDown").animate({ 
+			"top": "+=40px" 
+		}, 450).delay(150);
 		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
     }
     $('#arrowDown').fadeOut();
 
     //Starts timer and activates dragable objects
     setTimeout(startTimer, 3150);
-	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
 
+}
+
+function finnishedGame(){
+
+	$("#finnishedPancakes").animate({
+        height: 350,
+        top: 200,
+        left: 200,
+        opacity: 1
+    }, {
+        duration: 500,
+        //easing: "easeOutBounce"
+    });
+
+    $("#finnished").fadeIn();
+
+    window.setTimeout(function(){
+    	$("#goodJob").show();
+    }, 600);
+
+    setTimeout(result, 2000);
 }
 
 function result() {
