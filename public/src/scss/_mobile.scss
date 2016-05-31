@@ -81,6 +81,19 @@ body {
 	}
 	}
 }
+#face{
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	top: 180px;
+    left: 295px;
+	z-index: 1;
+
+	img{
+		width: 40px;
+	}
+}
+
 
 .ball {
 	width: 6%;
@@ -292,6 +305,23 @@ body {
 	}
 	&:hover {
 		cursor: pointer;
+	}
+}
+.ranking {
+	margin: 0 auto;
+	width: 250px;
+    padding: 0;
+	li {
+		font-size: 1em;
+		list-style: none;
+	}
+	span {
+		padding-left: 20px;
+		float: right;
+	}
+	img {
+		padding-right: 10px;
+		width: 12px;
 	}
 }
 
