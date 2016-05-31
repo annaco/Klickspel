@@ -1,4 +1,4 @@
-var timer, points = 0, timerCount = 0, correctItems = 0;
+var timer, timerCount = 0;
 var recipe;
 var currentRecipe = 0;
 var totalRecipe = 0;
@@ -6,8 +6,6 @@ var id = "";
 var playersList;
 
 $(document).ready(function() {
-	$('#timer').hide();
-	$('#recipe_list').hide();
 
 	$('#send').click(function(event) {
 		event.preventDefault();
