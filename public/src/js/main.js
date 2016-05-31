@@ -27,13 +27,20 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
-		// Gå directly to the game if the player wants to play the game again
-		if(window.location.href.indexOf('reload=true') > -1) {
-			startGame();
-		}
+		showInstructions();
 	});
 
+	
 });
+
+function showInstructions(){
+	
+	if(window.location.href.indexOf('reload=true') > -1) {
+		startGame();
+	}else{
+		$(".instruction").show();
+	}
+}
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
@@ -49,12 +56,9 @@ function startGame() {
 	// Removes the start button when the game is started
 	$('#start').hide();
 
-	
-
 	// functions
 	getList();
-	arrowDown();
-	
+	arrowDown();	
 }
 
 function getList() {
@@ -72,8 +76,23 @@ function getList() {
 	$('#recipe').html(recipeTitle);
 }
 
+// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
+function arrowDown() {
+	for (i = 0; i < 3; i++) {
+		$("#arrowDown").animate({ 
+			"top": "+=40px" 
+		}, 450).delay(150);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
+    }
+    $('#arrowDown').fadeOut();
+
+    //Starts timer and activates dragable objects
+    setTimeout(startTimer, 3150);
+	setTimeout(dragAndDrop, 3150);
+}
+
+// Gets the ingredients and displays them
 function getIngredients() {
-	// Gets the ingredients and displays them
 	var items = "";
 
 	for (var i=1; i < totalRecipe; i++) {
@@ -82,8 +101,8 @@ function getIngredients() {
 	$('#items').html(items);
 }
 
+// Starts the timer function
 function startTimer(){
-	// Starts the timer function
 	timer = setInterval(countTime, 1000);
 }
 
@@ -121,7 +140,6 @@ function dragAndDrop() {
 						$('#face').html(normalFace);
 					}, 1000);
 				return true;
-
 			}
 		}
 	});
@@ -159,7 +177,7 @@ function dragAndDrop() {
 			}
 
 			if ($('.done').length == 4) {
-				setTimeout(stopTimer);
+				stopTimer();
 				setTimeout(finnishedGame, 1000);
 			}
 		}
@@ -170,22 +188,6 @@ function stopTimer(){
 	clearInterval(timer);
 }
 
-// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
-function arrowDown() {
-	for (i = 0; i < 3; i++) {
-		$("#arrowDown").animate({ 
-			"top": "+=40px" 
-		}, 450).delay(150);
-		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
-    }
-    $('#arrowDown').fadeOut();
-
-    //Starts timer and activates dragable objects
-    setTimeout(startTimer, 3150);
-	setTimeout(dragAndDrop, 3150);
-
-}
-
 function finnishedGame(){
 
 	$("#finnishedPancakes").animate({
@@ -194,8 +196,7 @@ function finnishedGame(){
         left: 200,
         opacity: 1
     }, {
-        duration: 500,
-        //easing: "easeOutBounce"
+        duration: 500
     });
 
     $("#finnished").fadeIn();
