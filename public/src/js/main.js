@@ -191,9 +191,9 @@ function stopTimer(){
 function finnishedGame(){
 
 	$("#finnishedPancakes").animate({
-        height: 350,
-        top: 200,
-        left: 200,
+        height: "60%",
+        top: "20%",
+        left: "10%",
         opacity: 1
     }, {
         duration: 500
@@ -205,7 +205,7 @@ function finnishedGame(){
     	$("#goodJob").show();
     }, 600);
 
-    setTimeout(result, 2000);
+    //setTimeout(result, 2000);
 }
 
 function result() {
