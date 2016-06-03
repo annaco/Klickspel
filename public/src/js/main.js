@@ -4,25 +4,38 @@ var currentRecipe = 0;
 var totalRecipe = 0;
 var id = "";
 var playersList;
+var playerName;
+var playerTime;
+var ajax = new XMLHttpRequest();
+var values = $(this).serialize();
+
+function parseXML() {
+	var xml = ajax.responseXML; // Gets the response data as XML data
+
+	var player = xml.getElementsByTagName("player");
+	var names = xml.getElementsByTagName("name");
+	var ranking = "";
+
+	for (var i = 0; i < player.length; i++) {
+		if (player[i].children) {
+
+			ranking += '<li>';
+			ranking += '<img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML;
+			ranking += '<span>' + player[i].children[1].innerHTML + '</span></li>';
+		}
+	}
+	document.getElementById('ranking').innerHTML = ranking;
+	document.getElementById("name").innerHTML = name;
+}
 
 $(document).ready(function() {
-	$('#timer').hide();
-	$('#recipe_list').hide();
 
 	$('#send').click(function(event) {
 		event.preventDefault();
-		//$('.reg').fadeOut();
 		startGame();
 		var name = $('#name').val();
-    	console.log(name);
+  
     	localStorage.setItem('playerName', name);
-	});
-
-	$.getJSON("../players.json", function(data) {
-		playersList = data.players;
-		totalPlayers = playersList.length;
-		//console.log(totalPlayers);
-		getPlayers();
 	});
 
 	// Connects with JSON - ingredients list
@@ -31,13 +44,13 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
-		// Gå directly to the game if the player wants to play the game again
+		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
+		} else {
+			//localStorage.clear();
 		}
 	});
-	// När man klickar på "börja laga" i instruktionsrutan startar spelet
-	//$("#start").on('click', startGame);
 });
 
 function startGame() {
@@ -54,12 +67,9 @@ function startGame() {
 	// Removes the start button when the game is started
 	$('#start').hide();
 
-	
-
 	// functions
 	getList();
 	arrowDown();
-	
 }
 
 function getList() {
@@ -118,19 +128,29 @@ function padNumber(num) {
 	}
 }
 
-function makeDraggable(){
-	$('.draggableItem').draggable({revert: 'invalid'});
-};
-
 function dragAndDrop() {
+
+	$('.draggableItem').draggable({
+		revert: function(happyFace){
+
+			if(!happyFace){
+				var normalFace = "<img src='../img/normal.png'>";
+					$('#face').html("<img src='../img/fail.png'>");
+					setTimeout(function(){
+						$('#face').html(normalFace);
+					}, 1000);
+				return true;
+			}
+		}
+	});
+
 	$('.kastrull').droppable({
 		accept: '.ok',
 		drop:function(event, ui){
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
+			
 			// Loops the recipe
-			console.log(userAnswer);
-
 			for (var i=1; i < totalRecipe; i++) {
 				if(recipe[i].id == userAnswer){
 
@@ -167,7 +187,7 @@ function stopTimer(){
 	clearInterval(timer);
 }
 
-// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
+// The arrow pointing down into the pan 3 times and then fading out
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
@@ -175,17 +195,40 @@ function arrowDown() {
     }
     $('#arrowDown').fadeOut();
 
+    //Starts timer and activates dragable objects
     setTimeout(startTimer, 3150);
-	setTimeout(makeDraggable, 3150);
+	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
-
 }
 
 function result() {
+	playerName = localStorage.getItem('playerName');
+	playerTime = document.getElementById('timer_text').innerHTML;
+
+	$.ajax({
+	url: "save.php",
+	type: "POST",
+	data: {name:playerName, time: playerTime},
+	success: function(response) {
+			/* Specifies the type of request */
+			ajax.open("GET", "players.xml", true);
+
+			/* Send a request to a server */
+			ajax.send();
+		}
+	});
+
+	ajax.onreadystatechange = function() {
+		if(ajax.readyState == 4 && ajax.status == 200) {
+			parseXML();
+		}
+	}
+
 	$('#wrapper').hide();
 	$('#result').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	$('.recipeImg').html(recipeTitle);
+
 
 	// If the player wants to play the game again, go back to the game
 	$('.playAgain').on('click', function() {
@@ -193,15 +236,4 @@ function result() {
 	});
 }
 
-function getPlayers() {
-	var ranking = "";
-
-	for(i = 0; i < totalPlayers; i++){
-		ranking += '<li>';
-		ranking += '<img src="../img/star-green.png" alt="greenstar">' + playersList[i].name;
-		ranking += '<span>' + playersList[i].time + '</span></li>';
-	}
-
-	$(".ranking").html(ranking);
-}
 
