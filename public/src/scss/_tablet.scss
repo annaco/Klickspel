@@ -10,12 +10,44 @@ label{
 	display: block;
 }
 
+#finnished{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index:5;
+	top:0;
+	background-color: #ffffff;
+	opacity: 0.8;
+	display: none;
+}
+
+#finnishedPancakes{
+	position: absolute;
+	z-index: 8;
+    height: 50px;
+    opacity: 0;
+    top: 500px;
+    left: 400px;
+    margin: auto;
+}
+
+#goodJob{
+	display: none;
+	position: absolute;
+	z-index: 8;
+    top: 60px;
+    margin: auto;
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+}
+
 #wrapper {
 	background-image: url(../img/bg.png);
 	background-repeat: no-repeat;
 	background-size: 1000px;
 	width: 1000px;
-	height: 700px;
+	height: 695px;
 	position: relative;
 	margin: 0px auto;
 	border: 20px solid white;
@@ -29,6 +61,7 @@ label{
 	width: 150px;
 	text-align: center;
 	margin: 10px;
+	display: none;
 
 	#timer_text{
 		font-size: 1.5em;
@@ -38,6 +71,7 @@ label{
 }
 
 #recipe_list{
+	display: none;
 	background-image: url(../img/recipe.png);
 	background-repeat: no-repeat;
 	background-size: 150px; 
@@ -67,10 +101,96 @@ label{
 	}
 }
 
+
+.ball {
+	width: 50px;
+	position: absolute;
+	top: 60px;
+    left: 270px;
+    z-index: 3;
+}
+.banana {
+	width: 75px;
+	position: absolute;
+	top: 455px;
+    left: 270px;
+    z-index: 3;
+}
+
+.cactus {
+	width: 60px;
+	position: absolute;
+	top: 255px;
+    left: 850px;
+    z-index: 3;
+}
+.candy {
+	width: 70px;
+	position: absolute;
+	top: 300px;
+    left: 190px;
+    z-index: 3;
+}
+.carrot {
+	width: 110px;
+	position: absolute;
+	top: 460px;
+    left: 155px;
+    z-index: 3;
+}
+
+.duck {
+	width: 60px;
+	position: absolute;
+	top: 380px;
+    left: 270px;
+    z-index: 3;
+}
+.egg {
+	width: 85px;
+	position: absolute;
+	top: 365px;
+    left: 170px;
+    z-index: 3;
+}
+.flour {
+	width: 70px;
+	position: absolute;
+	top: 130px;
+    left: 270px;
+    z-index: 3;
+}
+.juice {
+	width: 38px;
+	position: absolute;
+	top: 250px;
+    left: 920px;
+    z-index: 3;
+}
+.milk {
+	width: 50px;
+	position: absolute;
+	top: 370px;
+    left: 890px;
+    z-index: 3;
+}
+.pepper {
+	width: 32px;
+	position: absolute;
+	top: 160px;
+    left: 500px;
+    z-index: 3;
+}
+.salt {
+	width: 32px;
+	position: absolute;
+	top: 160px;
+    left: 450px;
+    z-index: 3;
+}
 #face{
 	width: 100px;
 	height: 100px;
-	//border: red solid 1px;
 	position: absolute;
 	top: 387px;
     left: 610px;
@@ -79,93 +199,6 @@ label{
 	img{
 		width: 90px;
 	}
-}
-
-.ball {
-	width: 50px;
-	position: absolute;
-	top: 60px;
-    left: 270px;
-    z-index: 1;
-}
-.banana {
-	width: 75px;
-	position: absolute;
-	top: 455px;
-    left: 270px;
-    z-index: 1;
-}
-
-.cactus {
-	width: 60px;
-	position: absolute;
-	top: 255px;
-    left: 850px;
-    z-index: 1;
-}
-.candy {
-	width: 70px;
-	position: absolute;
-	top: 300px;
-    left: 190px;
-    z-index: 1;
-}
-.carrot {
-	width: 110px;
-	position: absolute;
-	top: 460px;
-    left: 155px;
-    z-index: 1;
-}
-
-.duck {
-	width: 60px;
-	position: absolute;
-	top: 380px;
-    left: 270px;
-    z-index: 1;
-}
-.egg {
-	width: 85px;
-	position: absolute;
-	top: 365px;
-    left: 170px;
-    z-index: 1;
-}
-.flour {
-	width: 70px;
-	position: absolute;
-	top: 130px;
-    left: 270px;
-    z-index: 1;
-}
-.juice {
-	width: 38px;
-	position: absolute;
-	top: 250px;
-    left: 920px;
-    z-index: 1;
-}
-.milk {
-	width: 50px;
-	position: absolute;
-	top: 370px;
-    left: 890px;
-    z-index: 1;
-}
-.pepper {
-	width: 32px;
-	position: absolute;
-	top: 160px;
-    left: 500px;
-    z-index: 1;
-}
-.salt {
-	width: 32px;
-	position: absolute;
-	top: 160px;
-    left: 450px;
-    z-index: 1;
 }
 
 #arrowDown {
@@ -186,7 +219,7 @@ label{
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
-    right: 400px;
+    left: 400px;
     width: 100px;
     display: none;
 }
@@ -196,6 +229,7 @@ label{
 	background-color: transparentize(#000, 0.25);
 	position: relative;
 	z-index: 10;
+	display: none;
 
 	.monster {
 		position: absolute;

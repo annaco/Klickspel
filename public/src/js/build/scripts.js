@@ -9,25 +9,6 @@ var playerTime;
 var ajax = new XMLHttpRequest();
 var values = $(this).serialize();
 
-function parseXML() {
-	var xml = ajax.responseXML; // Gets the response data as XML data
-
-	var player = xml.getElementsByTagName("player");
-	var names = xml.getElementsByTagName("name");
-	var ranking = "";
-
-	for (var i = 0; i < player.length; i++) {
-		if (player[i].children) {
-
-			ranking += '<li>';
-			ranking += '<img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML;
-			ranking += '<span>' + player[i].children[1].innerHTML + '</span></li>';
-		}
-	}
-	document.getElementById('ranking').innerHTML = ranking;
-	document.getElementById("name").innerHTML = name;
-}
-
 $(document).ready(function() {
 
 	$('#send').click(function(event) {
@@ -44,6 +25,8 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
+		showInstructions();
+
 		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
@@ -52,6 +35,15 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function showInstructions(){
+	
+	if(window.location.href.indexOf('reload=true') > -1) {
+		startGame();
+	}else{
+		$(".instruction").show();
+	}
+}
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
@@ -69,7 +61,7 @@ function startGame() {
 
 	// functions
 	getList();
-	arrowDown();
+	arrowDown();	
 }
 
 function getList() {
@@ -87,8 +79,23 @@ function getList() {
 	$('#recipe').html(recipeTitle);
 }
 
+// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
+function arrowDown() {
+	for (i = 0; i < 3; i++) {
+		$("#arrowDown").animate({ 
+			"top": "+=40px" 
+		}, 450).delay(150);
+		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
+    }
+    $('#arrowDown').fadeOut();
+
+    //Starts timer and activates dragable objects
+    setTimeout(startTimer, 3150);
+	setTimeout(dragAndDrop, 3150);
+}
+
+// Gets the ingredients and displays them
 function getIngredients() {
-	// Gets the ingredients and displays them
 	var items = "";
 
 	for (var i=1; i < totalRecipe; i++) {
@@ -97,8 +104,8 @@ function getIngredients() {
 	$('#items').html(items);
 }
 
+// Starts the timer function
 function startTimer(){
-	// Starts the timer function
 	timer = setInterval(countTime, 1000);
 }
 
@@ -116,10 +123,6 @@ function countTime() {
 	}
 }
 
-/**
-* Pad a number with a zero if it's less than 10
-* @param {number} num - Input number to check if it's less than 10
-**/
 function padNumber(num) {
 	if(num < 10) {
 		return "0"+num;
@@ -164,7 +167,7 @@ function dragAndDrop() {
 					$('.star').show().animate({
 					    bottom: '+=150px'
 					}, 'slow', function() { 
-						$(this).removeAttr('style'); 
+						$(this).removeAttr('style');  
 					});
 
 					var normalFace = "<img src='../img/normal.png'>";
@@ -176,8 +179,8 @@ function dragAndDrop() {
 			}
 
 			if ($('.done').length == 4) {
-				setTimeout(stopTimer);
-				result();
+				stopTimer();
+				setTimeout(finnishedGame, 800);
 			}
 		}
 	});
@@ -186,6 +189,7 @@ function dragAndDrop() {
 function stopTimer(){
 	clearInterval(timer);
 }
+
 
 // The arrow pointing down into the pan 3 times and then fading out
 function arrowDown() {
@@ -199,6 +203,25 @@ function arrowDown() {
     setTimeout(startTimer, 3150);
 	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
+}
+
+function finnishedGame(){
+	$("#finnishedPancakes").animate({
+        height: "60%",
+        top: "20%",
+        left: "10%",
+        opacity: 1
+    }, {
+        duration: 500
+    });
+
+    $("#finnished").fadeIn();
+
+    window.setTimeout(function(){
+    	$("#goodJob").show();
+    }, 600);
+
+    setTimeout(result, 3500);
 }
 
 function result() {
@@ -236,4 +259,22 @@ function result() {
 	});
 }
 
+// Gets results from players.xml
+function parseXML() {
+	var xml = ajax.responseXML; // Gets the response data as XML data
 
+	var player = xml.getElementsByTagName("player");
+	var names = xml.getElementsByTagName("name");
+	var ranking = "";
+
+	for (var i = 0; i < player.length; i++) {
+		if (player[i].children) {
+
+			ranking += '<li>';
+			ranking += '<img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML;
+			ranking += '<span>' + player[i].children[1].innerHTML + '</span></li>';
+		}
+	}
+	document.getElementById('ranking').innerHTML = ranking;
+	document.getElementById("name").innerHTML = name;
+}

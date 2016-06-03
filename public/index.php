@@ -57,6 +57,9 @@
 		
 		<img src="img/stars2.png" class="star">
 
+		<div id="finnished"></div>
+			<h2 id="goodJob">Bra jobbat!</h2>
+			<img id="finnishedPancakes" src="../img/pancakesBig.png">
 	</div>
 
 	<div id="result">
@@ -66,7 +69,7 @@
 			<div id="time"></div>
 		</div>
 		<p>Snabbaste spelarna</p>
-		<ul id="ranking"></ul>
+		<ul id="ranking" class="ranking"></ul>
 		<div class="playAgain">
 			<img src="img/button.png" alt="playagain">
 			<p>Spela igen</p>
