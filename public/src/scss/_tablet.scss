@@ -29,6 +29,7 @@ label{
 	width: 150px;
 	text-align: center;
 	margin: 10px;
+	display: none;
 
 	#timer_text{
 		font-size: 1.5em;
@@ -44,6 +45,7 @@ label{
 	padding: 20px;
 	width: 120px;
 	margin: 10px;
+	display:none;
 
 	#recipe{
 		img{
@@ -258,11 +260,13 @@ label{
 		text-align: center;
 		font-size: 1.56em;
 		margin: 0;
+		font-weight: bold;
 	}
 }
 .playAgain {
 	width: 173px;
     margin: 0 auto;
+    margin-top: 15px;
 	img {
 		position: absolute;
 		width: 25%;
@@ -271,25 +275,29 @@ label{
 		text-align: center;
 	    margin: 0;
 	    position: relative;
-	    padding-top: 10%;
+	    padding-top: 5%;
 	}
 	&:hover {
 		cursor: pointer;
 	}
 }
-.ranking {
+#ranking {
 	margin: 0 auto;
-	width: 300px;
+	width: 250px;
     padding: 0;
-	li {
-		font-size: 1.56em;
-		list-style: none;
-	}
-	span {
-		padding-left: 20px;
-		float: right;
-	}
+    font-size: 1.56em;
 	img {
-		padding-right: 10px;
+		margin-right: 10px;
+	}
+	td.highscore {
+		text-align: right;
+	}
+}
+#playerScore {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	p {
+		font-size: 1.85em;
+		color: rgb(46,105,72);
 	}
 }
