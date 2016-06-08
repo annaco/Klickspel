@@ -60,8 +60,7 @@ function startGame() {
 
 	// functions
 	getList();
-	arrowDown();
-	
+	arrowDown();	
 }
 
 function getList() {
@@ -81,7 +80,6 @@ function getList() {
 
 // Gets the ingredients and displays them
 function getIngredients() {
-	
 	var items = "";
 
 	for (var i=1; i < totalRecipe; i++) {
@@ -153,7 +151,7 @@ function dragAndDrop() {
 					$('.star').show().animate({
 					    bottom: '+=150px'
 					}, 'slow', function() { 
-						$(this).removeAttr('style'); 
+						$(this).removeAttr('style');  
 					});
 
 					var normalFace = "<img src='../img/normal.png'>";
@@ -188,7 +186,6 @@ function arrowDown() {
     setTimeout(startTimer, 3150);
 	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
-
 }
 
 function finnishedGame(){
@@ -238,8 +235,9 @@ function result() {
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	$('.recipeImg').html(recipeTitle);
 	var playerScore = '<p>Bra jobbat, ' + playerName + '!</p>';
-	playerScore += '<p>Din tid ' + playerTime + '</p>';
+	playerScore += '<p>Din tid är ' + playerTime + '</p>';
 	$('#playerScore').html(playerScore);
+
 
 	// If the player wants to play the game again, go back to the game
 	$('.playAgain').on('click', function() {
@@ -275,4 +273,3 @@ function parseXML() {
 
 	$('#ranking').html(ranking);*/
 }
-

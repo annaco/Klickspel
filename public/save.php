@@ -8,8 +8,6 @@ define('HIGHSCORE_FILE', 'players.xml');
 $xml = simplexml_load_file(HIGHSCORE_FILE);
 $sxe = new SimpleXMLElement($xml->asXML());
 
-// @TODO: Kör escape funktion typ htmlenteties på dessa:
-
 // Get current player end time and current player name
 $time = htmlentities($_POST["time"]);
 $name = htmlentities($_POST["name"]);
@@ -19,10 +17,8 @@ $json = json_encode($sxe);
 $array = json_decode($json,TRUE);
 $players = $array['player'];
 
-// TODO: Add current player to array, med array_push
-//array_push($players, $name, $time);
+// Add current player to array, med array_push
 array_push($players, array("name" => $name, "time" => $time));
-//var_dump($players);
 
 // Sort array based on time
 uasort($players, "compArr");
@@ -72,3 +68,4 @@ $xml2->asXML('players2.xml'); // save new file
 $sxe->asXML(HIGHSCORE_FILE);
 
 ?>
+

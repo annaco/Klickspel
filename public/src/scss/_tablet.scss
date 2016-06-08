@@ -71,6 +71,7 @@ label{
 }
 
 #recipe_list{
+	display: none;
 	background-image: url(../img/recipe.png);
 	background-repeat: no-repeat;
 	background-size: 150px; 
@@ -219,7 +220,7 @@ label{
 	z-index: 1;
 	position: absolute;
 	bottom: 200px;
-    right: 400px;
+    left: 400px;
     width: 100px;
     display: none;
 }

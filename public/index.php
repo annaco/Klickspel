@@ -10,7 +10,6 @@
 </head>
 <body>
 	<div id="wrapper">
-
 		<div class="instruction">
 			<div class="monster"><img src="img/monster.png"></div>
 			<div class= "bubble">
@@ -59,16 +58,18 @@
 		<img src="img/stars2.png" class="star">
 
 		<div id="finnished"></div>
+
 		<h2 id="goodJob">Bra jobbat!</h2>
 		<img id="finnishedPancakes" src="../img/pancakesBig.png">
-
 	</div>
 
 	<div id="result">
 		<div class="recipeImg"></div>
 		<div id="playerScore"></div>
 		<p>Snabbaste spelarna</p>
+
 		<table id="ranking"></table>
+
 		<div class="playAgain">
 			<img src="img/button.png" alt="playagain">
 			<p>Spela igen</p>
