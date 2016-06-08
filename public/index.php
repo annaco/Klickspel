@@ -22,12 +22,6 @@
 						<input type="text" name="name" id="name" required>
 						<input id="send" type="submit" name="sent" value="skicka">
 					</form>
-					<?php 
-						if(isset($_POST['name'])){
-							$name = $_POST['name'];
-						}
-					?>
-					<!--button id="start" class="start">Börja laga</button-->
 				</div>
 			</div>
 		</div>
@@ -63,6 +57,10 @@
 		<img src="img/arrowDown.png" id="arrowDown">
 		
 		<img src="img/stars2.png" class="star">
+
+		<div id="finnished"></div>
+		<h2 id="goodJob">Bra jobbat!</h2>
+		<img id="finnishedPancakes" src="../img/pancakesBig.png">
 
 	</div>
 

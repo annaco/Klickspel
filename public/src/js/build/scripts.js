@@ -9,8 +9,6 @@ var playerTime;
 var ajax = new XMLHttpRequest();
 var values = $(this).serialize();
 
-var values = $(this).serialize();
-
 $(document).ready(function() {
 
 	$('#send').click(function(event) {
@@ -26,6 +24,8 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
+		showInstructions();
+
 		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
@@ -33,9 +33,16 @@ $(document).ready(function() {
 			localStorage.clear();
 		}
 	});
-	// När man klickar på "börja laga" i instruktionsrutan startar spelet
-	//$("#start").on('click', startGame);
 });
+
+function showInstructions(){
+	
+	if(window.location.href.indexOf('reload=true') > -1) {
+		startGame();
+	}else{
+		$(".instruction").show();
+	}
+}
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
@@ -72,8 +79,9 @@ function getList() {
 	$('#recipe').html(recipeTitle);
 }
 
+// Gets the ingredients and displays them
 function getIngredients() {
-	// Gets the ingredients and displays them
+	
 	var items = "";
 
 	for (var i=1; i < totalRecipe; i++) {
@@ -82,8 +90,8 @@ function getIngredients() {
 	$('#items').html(items);
 }
 
+// Starts the timer function
 function startTimer(){
-	// Starts the timer function
 	timer = setInterval(countTime, 1000);
 }
 
@@ -101,10 +109,6 @@ function countTime() {
 	}
 }
 
-/**
-* Pad a number with a zero if it's less than 10
-* @param {number} num - Input number to check if it's less than 10
-**/
 function padNumber(num) {
 	if(num < 10) {
 		return "0"+num;
@@ -134,8 +138,8 @@ function dragAndDrop() {
 		drop:function(event, ui){
 			var userAnswer = ui.draggable[0].id;
 			var userAnswerID = "#" + userAnswer;
+			
 			// Loops the recipe
-
 			for (var i=1; i < totalRecipe; i++) {
 				if(recipe[i].id == userAnswer){
 
@@ -161,8 +165,8 @@ function dragAndDrop() {
 			}
 
 			if ($('.done').length == 4) {
-				setTimeout(stopTimer);
-				result();
+				stopTimer();
+				setTimeout(finnishedGame, 800);
 			}
 		}
 	});
@@ -172,7 +176,7 @@ function stopTimer(){
 	clearInterval(timer);
 }
 
-// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
+// The arrow pointing down into the pan 3 times and then fading out
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
 		$("#arrowDown").animate({ "top": "+=40px" }, 450).delay(150);
@@ -185,6 +189,25 @@ function arrowDown() {
 	//setTimeout(makeDraggable, 3150);
 	setTimeout(dragAndDrop, 3150);
 
+}
+
+function finnishedGame(){
+	$("#finnishedPancakes").animate({
+        height: "60%",
+        top: "20%",
+        left: "10%",
+        opacity: 1
+    }, {
+        duration: 500
+    });
+
+    $("#finnished").fadeIn();
+
+    window.setTimeout(function(){
+    	$("#goodJob").show();
+    }, 600);
+
+    setTimeout(result, 3500);
 }
 
 function result() {

@@ -1,7 +1,7 @@
 Array
 (
-    [name] => jakob
-    [time] => 00:04
+    [name] => maja
+    [time] => 00:08
 )
 Array
 (
