@@ -297,15 +297,17 @@ body {
 	    padding-top: 50px;
 	    img {
 	    	width: 100%;
+	    	margin-top: -20%;
 	    }
 	}
 	p {
 		text-align: center;
 		font-size: 1em;
+		margin: 0;
+		font-weight: bold;
 	}
 }
 .playAgain {
-	
 	width: 30%;
     margin: 0 auto;
 	img {
@@ -316,7 +318,7 @@ body {
 		text-align: center;
 	    margin: 0;
 	    position: relative;
-	    padding-top: 10%;
+	    padding-top: 6%;
 	}
 	&:hover {
 		cursor: pointer;
@@ -324,18 +326,20 @@ body {
 }
 #ranking {
 	margin: 0 auto;
-	width: 250px;
+	width: 150px;
     padding: 0;
-	li {
-		font-size: 1em;
-		list-style: none;
-	}
-	span {
-		padding-left: 20px;
-		float: right;
-	}
+    font-size: 0.9em;
 	img {
 		padding-right: 10px;
 		width: 12px;
+	}
+	td.highscore {
+		text-align: right;
+	}
+}
+#playerScore {
+	margin: 1% 0;
+	p {
+		color: rgb(46,105,72);
 	}
 }
