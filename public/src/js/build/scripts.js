@@ -259,13 +259,4 @@ function parseXML() {
     }
     while (i < 3);
     $('#ranking').html(ranking);
-
-    /*for (var i = 0; i < player.length; i++) {
-		console.log(player[i]);
-		ranking += '<tr>';
-		ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
-		ranking += '<td>' + player[i].children[1].innerHTML + '</td></tr>';
-	}
-
-	$('#ranking').html(ranking);*/
 }
