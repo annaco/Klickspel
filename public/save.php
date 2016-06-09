@@ -23,6 +23,14 @@ array_push($players, array("name" => $name, "time" => $time));
 // Sort array based on time
 uasort($players, "compArr");
 
+//Slice players to 10 players
+$n = count($players);
+$len = 10;
+for ($i = 0; $i + $len <= $n; $i += $len) {
+    $playersHighscore = array_slice($players, $i, $len, true);
+}
+
+//Compare players time
 function compArr($a, $b) {
 	$a = $a['time'];
 	$b = $b['time'];
@@ -36,15 +44,9 @@ function compArr($a, $b) {
 	}
 }
 
-
-echo "<pre>", var_dump($players), "</pre>";
-
 $xml2 = new SimpleXMLElement('<?xml version="1.0" ?><players/>');
 
-$counter = 1; // counter to track max 10 entries
-
-
-foreach($players as $player) {
+foreach($playersHighscore as $player) {
 
 	// for each player add a new node to xml file
 	$playerNode = $xml2->addChild("player");
@@ -54,21 +56,9 @@ foreach($players as $player) {
 		$playerNode->addChild("time", $player["time"]);
 
 	}
-
-	$counter++; // count up to 10
-
-
-	if($counter > 10) {
-		// if more than 10, exit the loop
-		// no need to save more than 10 highscores
-		continue;
-	}
 }
 
-$xml2->asXML('players2.xml'); // save new file
-
-//var_dump($xml);
-$sxe->asXML(HIGHSCORE_FILE);
+$xml2->asXML(HIGHSCORE_FILE);
 
 
 ?>

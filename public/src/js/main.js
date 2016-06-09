@@ -217,7 +217,7 @@ function result() {
 	data: {name:playerName, time: playerTime},
 	success: function(response) {
 			/* Specifies the type of request */
-			ajax.open("GET", "players2.xml", true);
+			ajax.open("GET", "players.xml", true);
 
 			/* Send a request to a server */
 			ajax.send();
