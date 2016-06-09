@@ -24,25 +24,15 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
-		showInstructions();
-
 		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
 		}  else {
 			localStorage.clear();
+			$(".instruction").show();
 		}
 	});
 });
-
-function showInstructions(){
-	
-	if(window.location.href.indexOf('reload=true') > -1) {
-		startGame();
-	}else{
-		$(".instruction").show();
-	}
-}
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
@@ -183,9 +173,15 @@ function arrowDown() {
     $('#arrowDown').fadeOut();
 
     //Starts timer and activates dragable objects
-    setTimeout(startTimer, 3150);
+    setTimeout(startTimer, 4150);
 	//setTimeout(makeDraggable, 3150);
-	setTimeout(dragAndDrop, 3150);
+	setTimeout(dragAndDrop, 4150);
+	//setTimeout(makeDraggable, 3150);
+	setTimeout(go, 3150);
+}
+
+function go() {
+	$('.go').fadeIn('fast').delay(1000).fadeOut('fast');
 }
 
 function finnishedGame(){
@@ -217,7 +213,7 @@ function result() {
 	data: {name:playerName, time: playerTime},
 	success: function(response) {
 			/* Specifies the type of request */
-			ajax.open("GET", "players2.xml", true);
+			ajax.open("GET", "players.xml", true);
 
 			/* Send a request to a server */
 			ajax.send();

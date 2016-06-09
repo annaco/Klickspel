@@ -96,6 +96,15 @@ body {
 	}
 	}
 }
+p.go {
+	font-size: 5em;
+	font-family: 'Chango', cursive;
+	bottom: 50px;
+    left: 100px;
+    position: absolute;
+	display: none;
+	z-index:2;
+}
 #face{
 	width: 45px;
 	height: 45px;

@@ -201,7 +201,15 @@ label{
 		width: 90px;
 	}
 }
-
+p.go {
+	font-size: 8em;
+	font-family: 'Chango', cursive;
+	bottom: 200px;
+    left: 300px;
+    position: absolute;
+	display: none;
+	z-index: 2;
+}
 #arrowDown {
 	width: 70px;
 	position: absolute;
