@@ -261,7 +261,7 @@ function parseXML() {
 		ranking += '<td class="highscore">' + player[i].children[1].innerHTML + '</td></tr>';
         i++;
     }
-    while (i < 3);
+    while (i < 5);
     $('#ranking').html(ranking);
 
     /*for (var i = 0; i < player.length; i++) {
