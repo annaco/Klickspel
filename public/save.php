@@ -4,22 +4,24 @@ file_put_contents('ajaxlogg.txt', print_r($_POST, true) . print_r($_GET, true));
 
 define('HIGHSCORE_FILE', 'players.xml');
 
+// Open high score file for sorting
+$xml = simplexml_load_file(HIGHSCORE_FILE);
+$sxe = new SimpleXMLElement($xml->asXML());
 
+// Get current player end time and current player name
+$time = htmlentities($_POST["time"]);
+$name = htmlentities($_POST["name"]);
 
-	$xml = simplexml_load_file(HIGHSCORE_FILE);
-	$sxe = new SimpleXMLElement($xml->asXML());
+// Encode XML file to array
+$json = json_encode($sxe);
+$array = json_decode($json,TRUE);
+$players = $array['player'];
 
-	// @TODO: Kör escape funktion typ htmlenteties på dessa:
-	$time = $_POST["time"];
-	$name = $_POST["name"];
+// Add current player to array, med array_push
+array_push($players, array("name" => $name, "time" => $time));
 
-	$new_item = $sxe->addChild("player"); 
-
-	$new_item->addChild("name", $name);
-	$new_item->addChild("time", $time);
-
-
-
+// Sort array based on time
+uasort($players, "compArr");
 
 function compArr($a, $b) {
 	$a = $a['time'];
@@ -32,72 +34,42 @@ function compArr($a, $b) {
 	} else {
 		return 0;
 	}
-
 }
-
-//Kod för att konvrtera xml till array som ska sorteras och
-//början på kod till att konvertera array till xml
-
-$json = json_encode($sxe);
-$array = json_decode($json,TRUE);
-$players = $array['player'];
-uasort($players, "compArr");
 
 
 echo "<pre>", var_dump($players), "</pre>";
 
-echo $array['player'][2]['time'];
+$xml2 = new SimpleXMLElement('<?xml version="1.0" ?><players/>');
 
-// Konvertera players till XML!
-// Skriv det objektet till HIGHSCORE_FILE
-// Skrive ÖVER filen.
-
-//$data = array('total_stud' => 500);
-
-// creating object of SimpleXMLElement
-/*$xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
-
-// function call to convert array to xml
-array_to_xml($players,$sxe);
-
-//saving generated xml file; 
-//$result = $xml_data->asXML('/file/path/name.xml');
+$counter = 1; // counter to track max 10 entries
 
 
+foreach($players as $player) {
+
+	// for each player add a new node to xml file
+	$playerNode = $xml2->addChild("player");
+
+	if(is_string($player["name"])) {
+		$playerNode->addChild("name", $player["name"]);
+		$playerNode->addChild("time", $player["time"]);
+
+	}
+
+	$counter++; // count up to 10
 
 
-//$xml = new SimpleXMLElement('<players/>');
-//array_walk_recursive($players, array ($xml, 'addChild'));
-//print $xml->asXML();
-
-$xml = new SimpleXMLElement("<?xml version=\"1.0\"?><SearchHotels></SearchHotels>");
-$node = $sxe->addChild("player");
-
-// function call to convert array to xml
-array_to_xml($players, $node);
-
-// display XML to screen
-echo $xml->asXML();
-die();
-
-// function to convert an array to XML using SimpleXML
-function array_to_xml($array, &$xml) {
-    foreach($array as $key => $value) {
-        if(is_array($value)) {
-            if(!is_numeric($key)){
-                $subnode = $xml->addChild("$key");
-                array_to_xml($value, $subnode);
-            } else {
-                array_to_xml($value, $xml);
-            }
-        } else {
-            $xml->addChild("$key","$value");
-        }
-    }
+	if($counter > 10) {
+		// if more than 10, exit the loop
+		// no need to save more than 10 highscores
+		continue;
+	}
 }
-var_dump($sxe);
-*/
-	$sxe->asXML(HIGHSCORE_FILE);
+
+$xml2->asXML('players2.xml'); // save new file
+
+//var_dump($xml);
+$sxe->asXML(HIGHSCORE_FILE);
+
 
 ?>
 

@@ -15,7 +15,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		startGame();
 		var name = $('#name').val();
-  
     	localStorage.setItem('playerName', name);
 	});
 
@@ -30,8 +29,8 @@ $(document).ready(function() {
 		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
-		} else {
-			//localStorage.clear();
+		}  else {
+			localStorage.clear();
 		}
 	});
 });
@@ -77,21 +76,6 @@ function getList() {
 
 	$('#ingredients').html(ingredients);
 	$('#recipe').html(recipeTitle);
-}
-
-// Pilen pekar ner i kastrullen 3 ggr och tonar sedan ut
-function arrowDown() {
-	for (i = 0; i < 3; i++) {
-		$("#arrowDown").animate({ 
-			"top": "+=40px" 
-		}, 450).delay(150);
-		$("#arrowDown").animate({ "top": "-=40px" }, 450);	
-    }
-    $('#arrowDown').fadeOut();
-
-    //Starts timer and activates dragable objects
-    setTimeout(startTimer, 3150);
-	setTimeout(dragAndDrop, 3150);
 }
 
 // Gets the ingredients and displays them
@@ -190,7 +174,6 @@ function stopTimer(){
 	clearInterval(timer);
 }
 
-
 // The arrow pointing down into the pan 3 times and then fading out
 function arrowDown() {
 	for (i = 0; i < 3; i++) {
@@ -234,7 +217,7 @@ function result() {
 	data: {name:playerName, time: playerTime},
 	success: function(response) {
 			/* Specifies the type of request */
-			ajax.open("GET", "players.xml", true);
+			ajax.open("GET", "players2.xml", true);
 
 			/* Send a request to a server */
 			ajax.send();
@@ -251,6 +234,9 @@ function result() {
 	$('#result').fadeIn('slow');
 	var recipeTitle = "<img src='"+recipe[0].img+"'>";
 	$('.recipeImg').html(recipeTitle);
+	var playerScore = '<p>Bra jobbat, ' + playerName + '!</p>';
+	playerScore += '<p>Din tid är ' + playerTime + '</p>';
+	$('#playerScore').html(playerScore);
 
 
 	// If the player wants to play the game again, go back to the game
@@ -258,23 +244,32 @@ function result() {
 		window.location = 'index.php?reload=true';
 	});
 }
-
-// Gets results from players.xml
 function parseXML() {
 	var xml = ajax.responseXML; // Gets the response data as XML data
 
 	var player = xml.getElementsByTagName("player");
-	var names = xml.getElementsByTagName("name");
+
+	var playerName = xml.getElementsByTagName("name");
+	var playerTime = xml.getElementsByTagName("time");
+
 	var ranking = "";
 
-	for (var i = 0; i < player.length; i++) {
-		if (player[i].children) {
+	var i = 0;
+    do {
+        ranking += '<tr>';
+		ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
+		ranking += '<td class="highscore">' + player[i].children[1].innerHTML + '</td></tr>';
+        i++;
+    }
+    while (i < 3);
+    $('#ranking').html(ranking);
 
-			ranking += '<li>';
-			ranking += '<img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML;
-			ranking += '<span>' + player[i].children[1].innerHTML + '</span></li>';
-		}
+    /*for (var i = 0; i < player.length; i++) {
+		console.log(player[i]);
+		ranking += '<tr>';
+		ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
+		ranking += '<td>' + player[i].children[1].innerHTML + '</td></tr>';
 	}
-	document.getElementById('ranking').innerHTML = ranking;
-	document.getElementById("name").innerHTML = name;
+
+	$('#ranking').html(ranking);*/
 }
