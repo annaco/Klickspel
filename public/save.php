@@ -35,8 +35,8 @@ function compArr($a, $b) {
 
 }
 
-/* Kod för att konvrtera xml till array som ska sorteras och
-början på kod till att konvertera array till xml
+//Kod för att konvrtera xml till array som ska sorteras och
+//början på kod till att konvertera array till xml
 
 $json = json_encode($sxe);
 $array = json_decode($json,TRUE);
@@ -52,26 +52,51 @@ echo $array['player'][2]['time'];
 // Skriv det objektet till HIGHSCORE_FILE
 // Skrive ÖVER filen.
 
-$data = array('total_stud' => 500);
+//$data = array('total_stud' => 500);
 
 // creating object of SimpleXMLElement
-$xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
+/*$xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
 
 // function call to convert array to xml
-array_to_xml($players,$xml_data);
+array_to_xml($players,$sxe);
 
 //saving generated xml file; 
-$result = $xml_data->asXML('/file/path/name.xml');
+//$result = $xml_data->asXML('/file/path/name.xml');
 
 
 
 
-$xml = new SimpleXMLElement('<players/>');
-array_walk_recursive($players, array ($xml, 'addChild'));
+//$xml = new SimpleXMLElement('<players/>');
+//array_walk_recursive($players, array ($xml, 'addChild'));
 //print $xml->asXML();
 
-var_dump($xml);*/
+$xml = new SimpleXMLElement("<?xml version=\"1.0\"?><SearchHotels></SearchHotels>");
+$node = $sxe->addChild("player");
 
+// function call to convert array to xml
+array_to_xml($players, $node);
+
+// display XML to screen
+echo $xml->asXML();
+die();
+
+// function to convert an array to XML using SimpleXML
+function array_to_xml($array, &$xml) {
+    foreach($array as $key => $value) {
+        if(is_array($value)) {
+            if(!is_numeric($key)){
+                $subnode = $xml->addChild("$key");
+                array_to_xml($value, $subnode);
+            } else {
+                array_to_xml($value, $xml);
+            }
+        } else {
+            $xml->addChild("$key","$value");
+        }
+    }
+}
+var_dump($sxe);
+*/
 	$sxe->asXML(HIGHSCORE_FILE);
 
 ?>

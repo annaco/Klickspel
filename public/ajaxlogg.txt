@@ -1,7 +1,5 @@
 Array
 (
-    [name] => d
-    [time] => 00:04
 )
 Array
 (
