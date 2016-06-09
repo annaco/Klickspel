@@ -44,7 +44,8 @@ function compArr($a, $b) {
 	}
 }
 
-$xml2 = new SimpleXMLElement('<?xml version="1.0" ?><players/>');
+
+$xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><players/>');
 
 foreach($playersHighscore as $player) {
 
@@ -62,4 +63,3 @@ $xml2->asXML(HIGHSCORE_FILE);
 
 
 ?>
-

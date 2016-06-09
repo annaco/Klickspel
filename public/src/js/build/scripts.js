@@ -24,25 +24,15 @@ $(document).ready(function() {
 		totalRecipe = recipe.length;
 		getIngredients();
 
-		showInstructions();
-
 		// Go directly to the game if the player wants to play the game again
 		if(window.location.href.indexOf('reload=true') > -1) {
 			startGame();
 		}  else {
 			localStorage.clear();
+			$(".instruction").show();
 		}
 	});
 });
-
-function showInstructions(){
-	
-	if(window.location.href.indexOf('reload=true') > -1) {
-		startGame();
-	}else{
-		$(".instruction").show();
-	}
-}
 
 function startGame() {
 	// Instruktionsrutan försvinner och spelet startar
@@ -183,9 +173,15 @@ function arrowDown() {
     $('#arrowDown').fadeOut();
 
     //Starts timer and activates dragable objects
-    setTimeout(startTimer, 3150);
+    setTimeout(startTimer, 4150);
 	//setTimeout(makeDraggable, 3150);
-	setTimeout(dragAndDrop, 3150);
+	setTimeout(dragAndDrop, 4150);
+	//setTimeout(makeDraggable, 3150);
+	setTimeout(go, 3150);
+}
+
+function go() {
+	$('.go').fadeIn('fast').delay(1000).fadeOut('fast');
 }
 
 function finnishedGame(){
@@ -263,13 +259,4 @@ function parseXML() {
     }
     while (i < 5);
     $('#ranking').html(ranking);
-
-    /*for (var i = 0; i < player.length; i++) {
-		console.log(player[i]);
-		ranking += '<tr>';
-		ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
-		ranking += '<td>' + player[i].children[1].innerHTML + '</td></tr>';
-	}
-
-	$('#ranking').html(ranking);*/
 }

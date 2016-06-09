@@ -7,6 +7,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Chango' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="wrapper">
@@ -53,6 +54,7 @@
 		<div id="items"></div>
 
 		<div class="kastrull"></div>
+		<p class="go">Kör!</p>
 		<img src="img/arrowDown.png" id="arrowDown">
 		
 		<img src="img/stars2.png" class="star">
