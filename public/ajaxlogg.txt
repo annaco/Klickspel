@@ -1,7 +1,12 @@
 Array
 (
+<<<<<<< HEAD
     [name] => fsfsg
     [time] => 00:04
+=======
+    [name] => ss
+    [time] => 00:06
+>>>>>>> 0200a629f8b7650cdfc1882bdf8affc527e6ae2e
 )
 Array
 (

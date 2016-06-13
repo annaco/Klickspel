@@ -27,7 +27,7 @@ uasort($players, "compArr");
 
 //Slice players to 10 players
 $n = count($players);
-$len = 10;
+$len = 5;
 for ($i = 0; $i + $len <= $n; $i += $len) {
     $playersHighscore = array_slice($players, $i, $len, true);
 }
