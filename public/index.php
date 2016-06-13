@@ -68,9 +68,14 @@
 	<div id="result">
 		<div class="recipeImg"></div>
 		<div id="playerScore"></div>
-		<p>Snabbaste spelarna</p>
-
-		<table id="ranking"></table>
+		<div class="highscore">
+			<p>Snabbaste spelarna</p>
+			<table id="ranking"></table>
+		</div>
+		<p class="ieNotSupported">
+			Highscore lista kan tyvärr inte <br>
+			visas i Internet Explorer.
+		</p>
 
 		<div class="playAgain">
 			<img src="img/button.png" alt="playagain">

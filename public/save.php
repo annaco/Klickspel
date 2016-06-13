@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 
 file_put_contents('ajaxlogg.txt', print_r($_POST, true) . print_r($_GET, true));
 
@@ -9,8 +10,9 @@ $xml = simplexml_load_file(HIGHSCORE_FILE);
 $sxe = new SimpleXMLElement($xml->asXML());
 
 // Get current player end time and current player name
-$time = htmlentities($_POST["time"]);
-$name = htmlentities($_POST["name"]);
+$time = $_POST["time"];
+$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+//$name = htmlentities($name);
 
 // Encode XML file to array
 $json = json_encode($sxe);
@@ -43,7 +45,6 @@ function compArr($a, $b) {
 		return 0;
 	}
 }
-
 
 $xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><players/>');
 

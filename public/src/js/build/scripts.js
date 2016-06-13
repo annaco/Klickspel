@@ -241,22 +241,34 @@ function result() {
 	});
 }
 function parseXML() {
-	var xml = ajax.responseXML; // Gets the response data as XML data
+	// Internet Explorer 6-11
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    // Edge 20+
+	var isEdge = !isIE && !!window.StyleMedia;
 
-	var player = xml.getElementsByTagName("player");
+	if (isIE == true || isEdge == true) {
+		$('p.ieNotSupported').show();
+		$('.highscore').hide();
+	}else {
+		$('p.ieNotSupported').hide();
+		
+		var xml = ajax.responseXML; // Gets the response data as XML data
 
-	var playerName = xml.getElementsByTagName("name");
-	var playerTime = xml.getElementsByTagName("time");
+		var player = xml.getElementsByTagName("player");
 
-	var ranking = "";
+		var playerName = xml.getElementsByTagName("name");
+		var playerTime = xml.getElementsByTagName("time");
 
-	var i = 0;
-    do {
-        ranking += '<tr>';
-		ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
-		ranking += '<td class="highscore">' + player[i].children[1].innerHTML + '</td></tr>';
-        i++;
-    }
-    while (i < 3);
-    $('#ranking').html(ranking);
+		var ranking = "";
+
+		var i = 0;
+	    do {
+	        ranking += '<tr>';
+			ranking += '<td><img src="../img/star-green.png" alt="greenstar">' + player[i].children[0].innerHTML + '</td>';
+			ranking += '<td class="highscore">' + player[i].children[1].innerHTML + '</td></tr>';
+	        i++;
+	    }
+	    while (i < 3);
+	    $('#ranking').html(ranking);
+	}
 }
