@@ -251,7 +251,6 @@ function parseXML() {
 		$('p.ieNotSupported').show();
 		$('.highscore').hide();
 	}else {
-		$('p.ieNotSupported').hide();
 		
 		var xml = ajax.responseXML; // Gets the response data as XML data
 
