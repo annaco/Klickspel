@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 
 file_put_contents('ajaxlogg.txt', print_r($_POST, true) . print_r($_GET, true));
 
@@ -44,8 +45,7 @@ function compArr($a, $b) {
 	}
 }
 
-
-$xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><players/>');
+$xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><players/>');
 
 foreach($playersHighscore as $player) {
 
@@ -60,6 +60,5 @@ foreach($playersHighscore as $player) {
 }
 
 $xml2->asXML(HIGHSCORE_FILE);
-
 
 ?>

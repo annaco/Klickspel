@@ -1,2 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<players><player><name>Natália</name><time>00:05</time></player><player><name>å</name><time>00:05</time></player><player><name>áäâ</name><time>00:05</time></player><player><name>Åsa</name><time>00:06</time></player><player><name>foo</name><time>00:23</time></player><player><name>mia</name><time>00:24</time></player><player><name>kamilla</name><time>00:24</time></player><player><name>kajsa</name><time>00:34</time></player><player><name>mertest</name><time>00:34</time></player><player><name>linus</name><time>00:54</time></player></players>
+<?xml version="1.0" encoding="UTF-8"?>
+<players><player><name>Mia</name><time>00:10</time></player><player><name>Anna</name><time>00:12</time></player><player><name>Kamilla</name><time>00:14</time></player><player><name>Natalia</name><time>00:17</time></player><player><name>Carin</name><time>00:18</time></player></players>
+
