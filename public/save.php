@@ -9,8 +9,8 @@ $xml = simplexml_load_file(HIGHSCORE_FILE);
 $sxe = new SimpleXMLElement($xml->asXML());
 
 // Get current player end time and current player name
-$time = htmlentities($_POST["time"]);
-$name = htmlentities($_POST["name"]);
+$time = $_POST["time"];
+$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
 
 // Encode XML file to array
 $json = json_encode($sxe);
@@ -25,7 +25,7 @@ uasort($players, "compArr");
 
 //Slice players to 10 players
 $n = count($players);
-$len = 5;
+$len = 10;
 for ($i = 0; $i + $len <= $n; $i += $len) {
     $playersHighscore = array_slice($players, $i, $len, true);
 }
@@ -45,7 +45,7 @@ function compArr($a, $b) {
 }
 
 
-$xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><players/>');
+$xml2 = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><players/>');
 
 foreach($playersHighscore as $player) {
 

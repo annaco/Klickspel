@@ -81,7 +81,7 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
 	<script src="jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	<script type="text/javascript" src="src/js/main.js"></script>
+	<script type="text/javascript" src="js/scripts.min.js"></script>
 
 </body>
 </html>
